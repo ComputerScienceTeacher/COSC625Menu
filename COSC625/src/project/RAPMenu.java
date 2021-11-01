@@ -2,7 +2,7 @@ package project;
 
 import java.awt.event.*;
 import java.util.Hashtable;
-
+import DataFunctions.DataSource;
 import javax.swing.*;
 
 /**
@@ -21,11 +21,22 @@ public class RAPMenu extends JFrame implements ActionListener{
     private JButton button1,button2;
     private JFrame f;
     private Hashtable <Object, String> options;
+	private DataSource db1;
     
     /**
      * This is the general constructor for a RAPMenu window.
      */
     public RAPMenu(){
+		
+    	//database testing
+    	DataSource db1 = new DataSource();
+    	db1.newQuery("CREATE TABLE IF NOT EXISTS test ( " +
+    	        "ID INTEGER PRIMARY KEY, " +
+    	        "NAME TEXT NOT NULL )");
+    	db1.newQuery("INSERT INTO test ( NAME ) VALUES ( 'Shane' )");
+    	db1.newQuery("INSERT INTO test ( NAME ) VALUES ( 'Sharon' )");
+    	
+    	//setting up menu
     	f= new JFrame("RAP (Requirements Assistance Planning)");  
         JMenuBar mb=new JMenuBar();
         label = new JLabel(" ");
@@ -105,8 +116,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     	mainLabel.setText(options.get(e.getSource())+" clicked");
     	f.revalidate();
-    }
-    
-    
+    }  
 	
 }
