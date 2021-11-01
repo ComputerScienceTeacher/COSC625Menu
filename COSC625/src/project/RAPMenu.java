@@ -173,7 +173,7 @@ public class RAPMenu extends JFrame implements ActionListener{
 		String line;
 		int lineCount = 0;
 		
-		//brings in all lines as potential infix equations
+		//brings in all lines of the CSV file as elements in the array
 		while((line=textIn.readLine())!=null){
 			if(!line.equals("")) {
 				result.add(line);
