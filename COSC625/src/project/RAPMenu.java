@@ -13,7 +13,7 @@ import java.io.IOException;
 
 /**
  * This is the constructor for the RAPMenu
- * It is an implementation of the JFrame.
+ * It is an extension of JFrame.
  * It implements the ActionListener for clicking the menu.
  * 
  * @author Chad Whiteley
@@ -163,6 +163,9 @@ public class RAPMenu extends JFrame implements ActionListener{
 		}
     }
 	
+    /*
+     * This method brings in the data for the courses from the CSV file.
+     */
     private static ArrayList <String> createArrayList(String inputFile) throws FileNotFoundException, IOException{
 		//variable declarations
 		ArrayList <String> result = new ArrayList<String>();
