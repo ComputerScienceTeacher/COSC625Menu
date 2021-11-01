@@ -20,14 +20,14 @@ import java.io.IOException;
  * @version 1.0
  */
 public class RAPMenu extends JFrame implements ActionListener{
-	private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
+    private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
     private JMenuItem i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13;
     private JLabel mainLabel, label;
     private JTextField textField;
     private JButton button1,button2;
     private JFrame f;
     private Hashtable <Object, String> options;
-	private DataSource db1;
+    private DataSource db1;
     
     /**
      * This is the general constructor for a RAPMenu window.
