@@ -34,7 +34,13 @@ public class RAPMenu extends JFrame implements ActionListener{
      */
     public RAPMenu(){
     	addCourses();
-	
+    	setUpMenu();
+    }
+    
+    /**
+     * This is the method for setting up the RAP Menu.
+     */
+    private void setUpMenu() {
     	//setting up menu
     	f= new JFrame("RAP (Requirements Assistance Planning)");  
         JMenuBar mb=new JMenuBar();
@@ -120,8 +126,10 @@ public class RAPMenu extends JFrame implements ActionListener{
     	}
     }
     
-    public void addCourses() {
-    	//database testing=
+    /**
+     * This is the method for adding courses to the database.
+     */
+    private void addCourses() {
     	DataSource db1 = new DataSource();
     	db1.newQuery("DELETE FROM COURSES");
     	db1.newQuery("CREATE TABLE IF NOT EXISTS COURSES " +
