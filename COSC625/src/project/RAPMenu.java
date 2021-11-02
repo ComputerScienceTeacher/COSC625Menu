@@ -29,7 +29,6 @@ public class RAPMenu extends JFrame implements ActionListener{
      */
     public RAPMenu(){
     	DataSource db1 = new DataSource();
-    	db1.newQuery("DROP TABLE STUDENTS");
     	db1.addCourseTable();
     	db1.addStudentTable();
     	db1.courseImport();
