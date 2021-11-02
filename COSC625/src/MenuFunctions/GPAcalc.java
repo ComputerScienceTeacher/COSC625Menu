@@ -1,9 +1,11 @@
-package project;
+package MenuFunctions;
 
 public class GPAcalc {
 
 	public GPAcalc() {
-		// TODO Auto-generated constructor stub
+		System.out.println("Success! Class: ");
+		System.out.print("GPACalc" + " works!");
+		
 	}
 
 }

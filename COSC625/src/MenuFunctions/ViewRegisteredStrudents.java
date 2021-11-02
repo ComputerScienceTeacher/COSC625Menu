@@ -1,9 +1,10 @@
-package project;
+package MenuFunctions;
 
 public class ViewRegisteredStrudents {
 
 	public void ViewRegisteredStudents() {
-		// TODO Auto-generated constructor stub
+		System.out.println("Success! Class: ");
+		System.out.print("ViewRegisteredStudents" + " works!");
 	}
 
 }

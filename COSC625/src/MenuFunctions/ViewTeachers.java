@@ -1,9 +1,10 @@
-package project;
+package MenuFunctions;
 
 public class ViewTeachers {
 
 	public ViewTeachers() {
-		// TODO Auto-generated constructor stub
+		System.out.println("Success! Class: ");
+		System.out.print("ViewTeachers" + " works!");
 	}
 
 }
