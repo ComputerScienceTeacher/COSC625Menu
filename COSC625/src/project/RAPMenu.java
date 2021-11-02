@@ -2,13 +2,8 @@ package project;
 
 import java.awt.event.*;
 import java.util.Hashtable;
-import java.util.ArrayList;
 import DataFunctions.DataSource;
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 
 /**
@@ -33,7 +28,12 @@ public class RAPMenu extends JFrame implements ActionListener{
      * This is the general constructor for a RAPMenu window.
      */
     public RAPMenu(){
-    	addCourses();
+    	DataSource db1 = new DataSource();
+    	db1.newQuery("DROP TABLE STUDENTS");
+    	db1.addCourseTable();
+    	db1.addStudentTable();
+    	db1.courseImport();
+    	db1.studentImport();
     	setUpMenu();
     }
     
@@ -125,64 +125,5 @@ public class RAPMenu extends JFrame implements ActionListener{
     		
     	}
     }
-    
-    /**
-     * This is the method for adding courses to the database.
-     */
-    private void addCourses() {
-    	DataSource db1 = new DataSource();
-    	db1.newQuery("DELETE FROM COURSES");
-    	db1.newQuery("CREATE TABLE IF NOT EXISTS COURSES " +
-    	        "(COURSEID VARCHAR(255) NOT NULL, " +
-    	        "NAME VARCHAR(255) NOT NULL, " +
-    	        "NUM_CREDITS INTEGER NOT NULL, " +
-    	        "Course_Level INTEGER NOT NULL, "  +
-    	        "NUM_STUDENTS INTEGER NOT NULL, "  +
-    	        "PreReq VARCHAR(255) NOT NULL, " +
-    	        "COREQ VARCHAR(255) NOT NULL," +
-    	        "PRIMARY KEY (NAME))");
-    	
-    	String inputFile = "courses.csv";
-    	ArrayList <String> coursesList = new ArrayList<String>();
-		try {
-			coursesList = createArrayList(inputFile);
-		} catch (FileNotFoundException e) {
-			System.err.println("Error reading file: " + e + "Input file " + inputFile + " not found.");
-		} catch  (IOException e) { 
-			System.err.println("Input file reading error:" + e);
-		}
-    
-		for(int i=0; i<coursesList.size();i++) {
-			String [] currentRecord = coursesList.get(i).split(",");
-			String queryString = "INSERT INTO courses(courseID, name, num_credits, course_level, Num_Students, prereq, coreq )" +
-				"VALUES ('" + currentRecord[0] + "'," + "'" + currentRecord[1] + "'," +
-				currentRecord[2] + "," + currentRecord[3] + "," + currentRecord[4] + "," + 
-				"'" + currentRecord[5] + "'," + "'" + currentRecord[6] +"')";
-			System.out.println(queryString);
-			db1.newQuery(queryString);
-		}
-    }
-	
-    /*
-     * This method brings in the data for the courses from the CSV file.
-     */
-    private static ArrayList <String> createArrayList(String inputFile) throws FileNotFoundException, IOException{
-		//variable declarations
-		ArrayList <String> result = new ArrayList<String>();
-		BufferedReader textIn = new BufferedReader(new FileReader(inputFile));
-		String line;
-		int lineCount = 0;
-		
-		//brings in all lines of the CSV file as elements in the array
-		while((line=textIn.readLine())!=null){
-			if(!line.equals("")) {
-				result.add(line);
-				lineCount ++;
-			}
-		}
-		System.out.println("There are " + lineCount + " records that have been added from the input file.");
-		textIn.close();
-		return result;
-	}
 	
 }
