@@ -1,5 +1,17 @@
 package DataFunctions;
 
+/**
+ * This class sets up the database file and imports data for Students and courses from csv files stored in the location as the project
+ * 
+ * 
+ * @author Chad Whiteley, Jacob Facemire 
+ * @Version 0.9
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -201,6 +213,28 @@ public class DataSource {
 					EmailAddress = currentLine[13];
 					DualCredit = currentLine[14];
 					ProgramOfStudy = currentLine[15];				
+					
+					/* Some students have names with apostrophes in them. This code flags every apostrophe imported so that
+					 * it does not cause SQL errors when executing statements 
+					 * 
+					 * for example, turns [  O'Brian  ] -> [  O''Brian  ] which sql properly reads as [  O'Brian  ]
+					 * 
+					 */
+					
+					String[] mod;
+							
+					if (LastName.contains("'")) {
+						mod = LastName.split("'");
+						LastName = mod[0] + "''" + mod[1];
+					}
+					if (FirstName.contains("'")) {
+						mod = LastName.split("'");
+						FirstName = mod[0] + "''" + mod[1];
+					}	
+					if (MiddleName.contains("'")) {
+						mod = LastName.split("'");
+						MiddleName = mod[0] + "''" + mod[1];
+					}		
 					
 					String sql =	"INSERT INTO STUDENTS (LastName, FirstName, MiddleName, StudentID, INTERNALID, GRADE, PHONENUM," +
 									"GENDER, GRADYEAR, ADDRESS, SECONDPHONE, BIRTHDATE,  THIRDPHONE, EMAILADDRESS, DUALCREDIT," +
