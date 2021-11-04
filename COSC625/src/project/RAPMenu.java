@@ -120,9 +120,33 @@ public class RAPMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     	mainLabel.setText(options.get(e.getSource())+" clicked");
     	f.revalidate();
-    	if(e.getSource()== i7) {
+    	//if(e.getSource()== i7) {
     		
-    	}
+    	//}
+        ClassHistory nana = new ClassHistory();
+    	CurrentCourses nanab = new CurrentCourses();  //3
+    	GPAcalc nanac = new GPAcalc();   //2
+    	ProgramOfStudy nanad = new ProgramOfStudy();   //4
+    	SuggestClasses nanae = new SuggestClasses();   //5
+
+        String nana1 = nana.ClassHistory();
+    	String nana2 = nanab.CurrentCourses();
+    	String nana3 = nanac.GPAcalc();
+    	String nana4 = nanad.ProgramOfStudy();
+        String nana5 = nanae.SuggestClasses();
+
+        if(e.getSource()== i1) 
+        	mainLabel.setText(nana1);
+        	else if(e.getSource()== i3) //{
+            mainLabel.setText(nana2);
+        	else if(e.getSource()== i2) //{
+            mainLabel.setText(nana3);
+        	else if(e.getSource()== i4) //{
+            mainLabel.setText(nana4);  
+        	else if(e.getSource()== i5) //{
+            mainLabel.setText(nana5);
+
+
     }
 	
 }
