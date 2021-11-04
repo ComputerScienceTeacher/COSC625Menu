@@ -127,12 +127,13 @@ public class RAPMenu extends JFrame implements ActionListener{
     	CurrentCourses nanab = new CurrentCourses();  //3
     	GPAcalc nanac = new GPAcalc();   //2
     	ProgramOfStudy nanad = new ProgramOfStudy();   //4
-    	SuggestedClasses nanae = new SuggestedClasses();   //5
+    	SuggestClasses nanae = new SuggestClasses();   //5
 
         String nana1 = nana.ClassHistory();
     	String nana2 = nanab.CurrentCourses();
     	String nana3 = nanac.GPAcalc();
     	String nana4 = nanad.ProgramOfStudy();
+        String nana5 = nanae.SuggestClasses();
 
         if(e.getSource()== i1) 
         	mainLabel.setText(nana1);
