@@ -2,9 +2,11 @@ package MenuFunctions;
 
 public class CurrentCourses {
 
-	public CurrentCourses() {
-		System.out.println("Success! Class: ");
-		System.out.print("CurrentCourses" + " works!");
+	public String CurrentCourses() {
+		//System.out.println("Success! Class: ");
+		//System.out.print("CurrentCourses" + " works!");
+                String nanay = "Success! Class: " + "CurrentCourses" + " works!";
+		return nanay;
 	}
 
 }
