@@ -270,7 +270,7 @@ public class DataSource {
 
 	}
 
-	public void StudentHistoryGen() {
+	public static void StudentHistoryGen() {
 		{
 			/*
 			 * This block of code makes a new table if it has yet to be created
@@ -325,19 +325,19 @@ public class DataSource {
 						if (Grade == 11) {
 							int r = (int)(Math.random() * 2 + 1);
 							if(r == 1)
-								temp = "A3220100, 3100600, 3050000, 3340100";
+								temp = "A3220100,3100600,3050000,3340100";
 							else 
-								temp = "3220300, 3100600, 3050000, 3340100";
+								temp = "3220300,3100600,3050000,3340100";
 						}
 						if (Grade == 12) {
 							int r = (int)(Math.random() * 3 + 1);	
 							System.out.println("r is : " + r);
 							if(r == 1)
-								temp = "A3220200, 3101100, 13002100, 3340100";
+								temp = "A3220200,3101100,13002100,3340100";
 							if(r == 2)
-								temp = "A3220100, A3100101, 13000700, 3310300";
+								temp = "A3220100,A3100101,13000700,3310300";
 							if(r == 3)
-								temp = "3220400, A3100200, 13020600, A3330100";		
+								temp = "3220400,A3100200,13020600,A3330100";		
 						}
 						
 						sql = "INSERT INTO HISTORY (StudentID, GRADE, CourseIDs) VALUES (\'" + StudentID + "\', \'" + Grade +  "\',\'" + temp + "\') ";
@@ -356,6 +356,6 @@ public class DataSource {
 		
 
 	}
-
+	
 }
 
