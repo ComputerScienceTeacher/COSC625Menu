@@ -23,7 +23,7 @@ import java.sql.Statement;
 import org.sqlite.SQLiteDataSource;
 
 public class DataSource {
-	SQLiteDataSource ds;
+	  static SQLiteDataSource ds = new SQLiteDataSource();
 	
 	public DataSource(){
 		ds = null;
@@ -46,7 +46,7 @@ public class DataSource {
 	    System.out.println( "Created database successfully" );
 	}
 	
-	public void newQuery(String query) {
+	public static   void newQuery(String query) {
 		try ( Connection conn = ds.getConnection();
 	            Statement stmt = conn.createStatement(); ) {
 	            int rv = stmt.executeUpdate( query );
@@ -58,13 +58,18 @@ public class DataSource {
 	    }
 	}
 	
-	public void addCourseTable()
+	public static   void addCourseTable()
 	{
+		
 		ds.setUrl("jdbc:sqlite:test.db");
 		try { Connection conn = ds.getConnection();
 		Statement smt = conn.createStatement();
+		
+		smt.executeUpdate("DROP TABLE COURSE");
+		
 		String sql = "CREATE TABLE  IF NOT EXISTS COURSE (Name VARCHAR(255), CourseID VARCHAR(255), NumberOfCredits FLOAT, "
-				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CourseCoRequisite VARCHAR(255) )";
+				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CourseCoRequisite VARCHAR(255), "
+				   + "ProgramOfStudy VARCHAR(255), ProgramOfStudyTwo VARCHAR(255), ProgramOfStudyThree VARCHAR(255), ProgramOfStudyFour VARCHAR(255))";
 		
 		smt.executeUpdate(sql);
 		System.out.println("Course Table Created");
@@ -75,16 +80,17 @@ public class DataSource {
 		}
 	}
 	
-	public void addStudentTable()
+	public static   void addStudentTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
+		newQuery("DROP TABLE STUDENTS");
 		try { Connection conn = ds.getConnection();
 		Statement smt = conn.createStatement();
 		String sql = "CREATE TABLE  IF NOT EXISTS STUDENTS (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), INTERNALID VARCHAR(255), GRADE INTEGER," +
 					"PHONENUM VARCHAR(255), GENDER VARCHAR(255), GRADYEAR INTEGER, ADDRESS VARCHAR(255), SECONDPHONE VARCHAR(255)," +
 					"BIRTHDATE VARCHAR(255),  THIRDPHONE VARCHAR(255), EMAILADDRESS VARCHAR(255), DUALCREDIT VARCHAR(255)," +
-					"PROGRAMOFSTUDY VARCHAR(255))";
+					"PROGRAMOFSTUDY VARCHAR(255), HISTORY VARCHAR(255))";
 
 		
 		smt.executeUpdate(sql);
@@ -97,11 +103,10 @@ public class DataSource {
 	}
 
 	
-	public void courseImport() {
-		newQuery("DELETE FROM COURSE");
+	public static   void courseImport() {
 		//Set relative paths for DB and CSV
 		ds.setUrl("jdbc:sqlite:test.db");
-		String csvPath = "Core_Courses.csv";
+		String csvPath = "Courses.csv";
 		
 		//These Vars are for all the columns in the Core Courses Table
 		String Name;
@@ -111,6 +116,10 @@ public class DataSource {
 		int NumberOfStudents;
 		String CoursePreRequisite;
 		String CourseCoRequisite;
+		String ProgramOfStudy;
+		String ProgramOfStudyTwo;
+		String ProgramOfStudyThree;
+		String ProgramOfStudyFour;
 		
 		//Set up Line Reader for CSV
 		try {
@@ -130,11 +139,17 @@ public class DataSource {
 					CourseLevel = Integer.valueOf(currentLine[3]);
 					NumberOfStudents = Integer.valueOf(currentLine[4]);
 					CoursePreRequisite = currentLine[5];
-					CourseCoRequisite = currentLine[6];				
+					CourseCoRequisite = currentLine[6];
+					ProgramOfStudy = currentLine[7];
+					ProgramOfStudyTwo = currentLine[8];
+					ProgramOfStudyThree = currentLine[9];
+					ProgramOfStudyFour = currentLine[10];
 					
-					String sql =	"INSERT INTO COURSE (Name, CourseID, NumberOfCredits, CourseLevel, NumberOfStudents, CoursePreRequisite, CourseCoRequisite) VALUES"
+					String sql =	"INSERT INTO COURSE (Name, CourseID, NumberOfCredits, CourseLevel, NumberOfStudents, CoursePreRequisite, CourseCoRequisite, "
+							+ "ProgramOfStudy, ProgramOfStudyTwo, ProgramOfStudyThree, ProgramOfStudyFour) VALUES"
 							+ "(\'" + Name + "\'," + "\'" + CourseID + "\'," + "\'" + NumberOfCredits + "\'," + "\'" + CourseLevel + "\'," + "\'" + NumberOfStudents 
-							+ "\'," + "\'" + CoursePreRequisite + "\'," + "\'" + CourseCoRequisite + "\')";
+							+ "\'," + "\'" + CoursePreRequisite + "\'," + "\'" + CourseCoRequisite + "\',"
+							+ "\'" + ProgramOfStudy + "\'," + "\'" + ProgramOfStudyTwo + "\'," + "\'" + ProgramOfStudyThree + "\'," + "\'" + ProgramOfStudyFour + "\')";
 					
 					smt.addBatch(sql);
 					
@@ -161,8 +176,7 @@ public class DataSource {
 
 	}
 	
-	public void studentImport() {
-		newQuery("DELETE FROM STUDENTS");
+	public static   void studentImport() {
 		//Set relative paths for DB and CSV
 		ds.setUrl("jdbc:sqlite:test.db");
 		String csvPath = "Students.csv";
@@ -184,6 +198,7 @@ public class DataSource {
 		String EmailAddress;
 		String DualCredit;
 		String ProgramOfStudy;
+		String History;
 		
 		//Set up Line Reader for CSV
 		try {
@@ -212,7 +227,10 @@ public class DataSource {
 					ThirdPhone = currentLine[12];
 					EmailAddress = currentLine[13];
 					DualCredit = currentLine[14];
-					ProgramOfStudy = currentLine[15];				
+					ProgramOfStudy = currentLine[15];
+					History = currentLine[16];
+					
+					
 					
 					/* Some students have names with apostrophes in them. This code flags every apostrophe imported so that
 					 * it does not cause SQL errors when executing statements 
@@ -238,11 +256,11 @@ public class DataSource {
 					
 					String sql =	"INSERT INTO STUDENTS (LastName, FirstName, MiddleName, StudentID, INTERNALID, GRADE, PHONENUM," +
 									"GENDER, GRADYEAR, ADDRESS, SECONDPHONE, BIRTHDATE,  THIRDPHONE, EMAILADDRESS, DUALCREDIT," +
-									"PROGRAMOFSTUDY) VALUES"
+									"PROGRAMOFSTUDY, HISTORY) VALUES"
 							+ "(\'" + LastName + "\'," + "\'" + FirstName + "\'," + "\'" + MiddleName + "\'," + "\'" + StudentID + "\'," + "\'" + InternalID 
 							+ "\'," + "\'" + Grade + "\'," + "\'" + PhoneNum + "\'," + "\'" + Gender + "\'," + "\'" + GradYear +"\'," + "\'" + Address  
 							+ "\'," + "\'" + SecondPhone + "\'," + "\'" + BirthDate + "\'," + "\'" + ThirdPhone + "\'," + "\'" + EmailAddress   
-							+ "\'," + "\'"+ DualCredit + "\',"  + "\'" + ProgramOfStudy +"\')";
+							+ "\'," + "\'"+ DualCredit + "\',"  + "\'" + ProgramOfStudy +"\',"  + "\'" + History + "\')";
 									
 					
 					smt.addBatch(sql);
@@ -270,7 +288,7 @@ public class DataSource {
 
 	}
 
-	public static void StudentHistoryGen() {
+	public   void StudentHistoryGen() {
 		{
 			/*
 			 * This block of code makes a new table if it has yet to be created
@@ -286,7 +304,7 @@ public class DataSource {
 			
 			smt.execute(sql2);
 			
-			String sql = "CREATE TABLE  IF NOT EXISTS HISTORY (StudentID VARCHAR(255), Grade INTEGER, CourseIDs VARCHAR(255))";
+			String sql = "CREATE TABLE  IF NOT EXISTS SCHEDULE (StudentID VARCHAR(255), Grade INTEGER, CourseIDs VARCHAR(255))";
 			
 			smt.addBatch(sql);
 			System.out.println("Course Table Created");
@@ -305,6 +323,7 @@ public class DataSource {
 			String StudentID;
 			int Grade;
 		
+			@SuppressWarnings("resource")
 			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
 			//This skips the header line
 			String line = lineReader.readLine();
@@ -340,7 +359,7 @@ public class DataSource {
 								temp = "3220400,A3100200,13020600,A3330100";		
 						}
 						
-						sql = "INSERT INTO HISTORY (StudentID, GRADE, CourseIDs) VALUES (\'" + StudentID + "\', \'" + Grade +  "\',\'" + temp + "\') ";
+						sql = "INSERT INTO SCHEDULE (StudentID, GRADE, CourseIDs) VALUES (\'" + StudentID + "\', \'" + Grade +  "\',\'" + temp + "\') ";
 						System.out.println(sql);
 						smt.addBatch(sql);
 					}
@@ -352,10 +371,9 @@ public class DataSource {
 				System.out.println("Unhandled SQL Exception");
 				e.printStackTrace();
 			}
-		}
+		}}
 		
 
-	}
 	
 }
 

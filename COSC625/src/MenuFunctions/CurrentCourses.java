@@ -9,7 +9,7 @@ import org.sqlite.SQLiteDataSource;
 
 public class CurrentCourses {
 
-	public static String[] CurrentCourse(String id) {
+	public static String[] CurrentCourses(String id) {
 		SQLiteDataSource ds;
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
