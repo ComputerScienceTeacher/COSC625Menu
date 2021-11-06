@@ -3,6 +3,8 @@ package project;
 import java.awt.event.*;
 import java.util.Hashtable;
 import DataFunctions.DataSource;
+import MenuFunctions.*;
+
 import javax.swing.*;
 
 
@@ -130,7 +132,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	SuggestClasses nanae = new SuggestClasses();   //5
 
         String nana1 = nana.ClassHistory();
-    	String nana2 = nanab.CurrentCourses();
+    	String[] nana2 = nanab.CurrentCourses("28974");
     	String nana3 = nanac.GPAcalc();
     	String nana4 = nanad.ProgramOfStudy();
         String nana5 = nanae.SuggestClasses();
