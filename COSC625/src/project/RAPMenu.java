@@ -125,28 +125,28 @@ public class RAPMenu extends JFrame implements ActionListener{
     	//if(e.getSource()== i7) {
     		
     	//}
-        ClassHistory nana = new ClassHistory();
-    	CurrentCourses nanab = new CurrentCourses();  //3
-    	GPAcalc nanac = new GPAcalc();   //2
-    	ProgramOfStudy nanad = new ProgramOfStudy();   //4
-    	SuggestClasses nanae = new SuggestClasses();   //5
+        ClassHistory history = new ClassHistory();
+    	CurrentCourses courses = new CurrentCourses();  //3
+    	GPAcalc GPA = new GPAcalc();   //2
+    	ProgramOfStudy program = new ProgramOfStudy();   //4
+    	SuggestClasses suggest = new SuggestClasses();   //5
 
-        String nana1 = nana.ClassHistory();
-    	String[] nana2 = nanab.CurrentCourses("28974");
-    	String nana3 = nanac.GPAcalc();
-    	String nana4 = nanad.ProgramOfStudy();
-        String nana5 = nanae.SuggestClasses();
+        String history1 = history.ClassHistory();
+    	String[] courses1 = courses.CurrentCourses("28974");
+    	String GPA1 = GPA.GPAcalc();
+    	String program1 = program.ProgramOfStudy();
+        String suggest1 = suggest.SuggestClasses();
 
         if(e.getSource()== i1) 
-        	mainLabel.setText(nana1);
+        	mainLabel.setText(history1);
         	else if(e.getSource()== i3) //{
-            mainLabel.setText(nana2);
+            mainLabel.setText(courses1);
         	else if(e.getSource()== i2) //{
-            mainLabel.setText(nana3);
+            mainLabel.setText(GPA1);
         	else if(e.getSource()== i4) //{
-            mainLabel.setText(nana4);  
+            mainLabel.setText(program1);  
         	else if(e.getSource()== i5) //{
-            mainLabel.setText(nana5);
+            mainLabel.setText(suggest1);
 
 
     }
