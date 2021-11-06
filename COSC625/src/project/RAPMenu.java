@@ -124,7 +124,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	f.revalidate();
     	
     		
-    	
+    	//Executes the associated fuctions when clicked
         ClassHistory history = new ClassHistory();
     	CurrentCourses courses = new CurrentCourses();  
     	GPAcalc GPA = new GPAcalc();   
