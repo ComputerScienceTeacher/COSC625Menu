@@ -23,7 +23,7 @@ import java.sql.Statement;
 import org.sqlite.SQLiteDataSource;
 
 public class DataSource {
-	  static SQLiteDataSource ds = new SQLiteDataSource();
+	public SQLiteDataSource ds = new SQLiteDataSource();
 	
 	public DataSource(){
 		ds = null;
@@ -46,7 +46,7 @@ public class DataSource {
 	    System.out.println( "Created database successfully" );
 	}
 	
-	public static   void newQuery(String query) {
+	public void newQuery(String query) {
 		try ( Connection conn = ds.getConnection();
 	            Statement stmt = conn.createStatement(); ) {
 	            int rv = stmt.executeUpdate( query );
@@ -58,7 +58,7 @@ public class DataSource {
 	    }
 	}
 	
-	public static   void addCourseTable()
+	public void addCourseTable()
 	{
 		
 		ds.setUrl("jdbc:sqlite:test.db");
@@ -80,13 +80,13 @@ public class DataSource {
 		}
 	}
 	
-	public static   void addStudentTable()
+	public void addStudentTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
 		newQuery("DROP TABLE STUDENTS");
 		try { Connection conn = ds.getConnection();
 		Statement smt = conn.createStatement();
-		String sql = "CREATE TABLE  IF NOT EXISTS STUDENTS (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
+		String sql = "CREATE TABLE IF NOT EXISTS STUDENTS (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), INTERNALID VARCHAR(255), GRADE INTEGER," +
 					"PHONENUM VARCHAR(255), GENDER VARCHAR(255), GRADYEAR INTEGER, ADDRESS VARCHAR(255), SECONDPHONE VARCHAR(255)," +
 					"BIRTHDATE VARCHAR(255),  THIRDPHONE VARCHAR(255), EMAILADDRESS VARCHAR(255), DUALCREDIT VARCHAR(255)," +
@@ -102,8 +102,29 @@ public class DataSource {
 		}
 	}
 
+	public void addHistoryTable()
+	{
+		ds.setUrl("jdbc:sqlite:test.db");
+		newQuery("DROP TABLE HISTORY");
+		try { Connection conn = ds.getConnection();
+		Statement smt = conn.createStatement();
+		String sql = "CREATE TABLE IF NOT EXISTS HISTORY (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
+					"MiddleName VARCHAR(255), StudentID VARCHAR(255), GRADE INTEGER, PROGRAMOFSTUDY VARCHAR(255), " +
+					"HIST VARCHAR(1255))";
+
+		
+		smt.executeUpdate(sql);
+		System.out.println("History Table Created");
+		
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+	}
+
 	
-	public static   void courseImport() {
+	
+	public void courseImport() {
 		//Set relative paths for DB and CSV
 		ds.setUrl("jdbc:sqlite:test.db");
 		String csvPath = "Courses.csv";
@@ -176,7 +197,74 @@ public class DataSource {
 
 	}
 	
-	public static   void studentImport() {
+	public void historyImport() {
+		//Set relative paths for DB and CSV
+		ds.setUrl("jdbc:sqlite:test.db");
+		String csvPath = "Course_History.csv";
+		
+		//These Vars are for all the columns in the Core Courses Table
+		String lastName;
+		String firstName;
+		String middleName;
+		String studentID;
+		int grade;
+		String programOfStudy;
+		String history;
+		
+		//Set up Line Reader for CSV
+		try {
+			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
+			//This skips the header line
+			String line = lineReader.readLine();
+			Connection conn = ds.getConnection();
+			Statement smt = conn.createStatement();	
+			
+			// This while loop goes through the whole CSV Iteratively
+			while ((line=lineReader.readLine())!=null) {
+				if(!line.contains(",,,")) {
+					String currentLine[] = line.split(",");
+					firstName = currentLine[0];
+					lastName = currentLine[1];
+					middleName = currentLine[2];
+					studentID = currentLine[3];
+					grade = Integer.valueOf(currentLine[4]);
+					programOfStudy = currentLine[5];
+					history = currentLine[6];
+					
+					String sql =	"INSERT INTO HISTORY (FirstName, LastName, MiddleName, StudentID, Grade, programOfStudy, hist) VALUES"
+							+ "(\'" + firstName + "\'," + "\'" + lastName + "\'," + "\'" + middleName + "\'," + "\'" + studentID + "\'," + 
+							"\'" + grade + "\'," + "\'" + programOfStudy + "\'," + "\'" + history + "\')";
+					
+					smt.addBatch(sql);
+					
+				}
+			}
+						
+			smt.executeBatch();
+			
+			System.out.println("Finished Importing History CSV");
+			lineReader.close();
+
+		
+		} catch (FileNotFoundException e) {
+			System.out.println("Course List Not Found. Error");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+		
+
+	}
+	
+	
+	
+	
+	
+	public void studentImport() {
 		//Set relative paths for DB and CSV
 		ds.setUrl("jdbc:sqlite:test.db");
 		String csvPath = "Students.csv";
@@ -288,7 +376,7 @@ public class DataSource {
 
 	}
 
-	public   void StudentHistoryGen() {
+	public void StudentHistoryGen() {
 		{
 			/*
 			 * This block of code makes a new table if it has yet to be created
@@ -371,7 +459,8 @@ public class DataSource {
 				System.out.println("Unhandled SQL Exception");
 				e.printStackTrace();
 			}
-		}}
+		}
+	}
 		
 
 	

@@ -4,46 +4,51 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import project.RAPMenu;
 
 import org.sqlite.SQLiteDataSource;
 
 public class CurrentCourses {
 
-	public static String[] CurrentCourses(String id) {
+	public CurrentCourses(RAPMenu rp1) {
+		rp1.getMainLabel().setText("Success! Current Courses works!");
 		SQLiteDataSource ds;
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
+		System.out.printf("Student ID is %s.%n ", rp1.getStudentID());
+		System.out.println("SELECT HIST FROM HISTORY WHERE StudentID = \'" + rp1.getStudentID() + "\';");
 		
 		try 
 		{ 
 			Connection conn = ds.getConnection();
 			Statement smt = conn.createStatement();
-			String sql = "SELECT CourseIDs FROM HISTORY WHERE StudentID = \'" + id + "\';";
+			String sql = "SELECT HIST FROM HISTORY WHERE StudentID = \'" + rp1.getStudentID() + "\';";
 		
 			ResultSet rs; 
 			ResultSet rs2;
 		
 			rs = smt.executeQuery(sql);
-			String[] classes = rs.getString("CourseIDs").split(",");
+			String[] classes = rs.getString("HIST").split("|",0);
 			String[] hist = new String[8];
 			for(int i = 0; i < classes.length; i++) {
+				System.out.println(classes[i]);
 				sql = "SELECT Name FROM COURSE WHERE CourseID LIKE \"" + classes[i] + "\"";
 				rs2 = smt.executeQuery(sql);
 				hist[i] = rs2.getString("Name");
 			}
 		
-			System.out.println("Student " + id + "'s Schedule:\n--------------------------------------");
+			System.out.println("Student " + rp1.getStudentID() + "'s Schedule:\n--------------------------------------");
 			for(int i = 0; i < hist.length; i++)
 				System.out.println(hist[i]);
 		
-			return hist;    
+			//return hist;    
 		} 
 		catch (SQLException e) {
 		System.out.println("Unhandled SQL Exception");
 		e.printStackTrace();
 		}
 			
-		return null;
+		//return null;
 	}
 	
 	//Print Method used for testing, keeping it in case it is useful for further development
@@ -76,14 +81,16 @@ public class CurrentCourses {
 		for(int i = 0; i < 100; i++)
 			System.out.println("Course: " + temp[i] + "\t\t\t\t\t\t\t" + t2[i]);
 		
-	} catch (SQLException e) {
-		System.out.println("Unhandled SQL Exception");
-		e.printStackTrace();
-	}}
-
-	
-	
-	
-	
-
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+	}
 }
+
+	
+	
+	
+	
+
+

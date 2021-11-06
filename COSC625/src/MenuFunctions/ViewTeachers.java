@@ -1,10 +1,11 @@
 package MenuFunctions;
 
+import project.RAPMenu;
+
 public class ViewTeachers {
 
-	public ViewTeachers() {
-		System.out.println("Success! Class: ");
-		System.out.print("ViewTeachers" + " works!");
+	public ViewTeachers(RAPMenu rp1) {
+		rp1.getMainLabel().setText("Success! View Teachers works!");
 	}
 
 }

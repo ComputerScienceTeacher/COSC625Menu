@@ -1,5 +1,6 @@
 package project;
 
+import java.awt.GridLayout;
 import java.awt.event.*;
 import java.util.Hashtable;
 import DataFunctions.DataSource;
@@ -21,22 +22,50 @@ public class RAPMenu extends JFrame implements ActionListener{
     private JMenuItem i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13;
     private JLabel mainLabel, label;
     private JTextField textField;
-    private JButton button1,button2;
-    private JFrame f;
+    private JButton button1;
+    private JFrame f, vsFrame;
+    private JMenuBar mb;
     private Hashtable <Object, String> options;
     private DataSource db1;
+    private String studentID;
     
     /**
      * This is the general constructor for a RAPMenu window.
      */
     public RAPMenu(){
+    	f= new JFrame("RAP (Requirements Assistance Planning)"); 
+    	mainLabel =new JLabel(); 
+    	options = new Hashtable<>();
+    	vsFrame = new JFrame();
+    	textField=new JTextField(10);
+        button1 = new JButton("GO!");
+        mb = new JMenuBar();
+        button1.setActionCommand("GO");
+        button1.addActionListener(this);
+		validateStudent();
     	DataSource db1 = new DataSource();
     	db1.addCourseTable();
     	db1.addStudentTable();
+    	db1.addHistoryTable();
     	db1.courseImport();
     	db1.studentImport();
+    	db1.historyImport();
+    	
     	setUpMenu();
+
     }
+    
+    private void validateStudent() {
+    	vsFrame.setLayout(new GridLayout(4,4));
+        label = new JLabel("Please enter a student ID:", JLabel.CENTER);
+        label.setVerticalAlignment(JLabel.TOP);
+        vsFrame.add(label);
+        vsFrame.add(textField);
+        vsFrame.add(button1);
+        vsFrame.setBounds(200,250,400,400);    
+        vsFrame.setVisible(true);
+    }
+    
     
     /**
      * This is the method for setting up the RAP Menu.
@@ -45,11 +74,12 @@ public class RAPMenu extends JFrame implements ActionListener{
     	//setting up menu
     	f= new JFrame("RAP (Requirements Assistance Planning)");  
         JMenuBar mb=new JMenuBar();
-        label = new JLabel(" ");
-        mainLabel = new JLabel("Please select a menu option", JLabel.CENTER);
+        label.setText(" ");
+        mainLabel.setText("Please select a menu option");
+        mainLabel.setHorizontalAlignment(JLabel.CENTER);
         mainLabel.setVerticalAlignment(JLabel.TOP);
-        f.add(mainLabel);
         
+       
         //first menu bar
         menu1=new JMenu("Student");  
         submenu1=new JMenu("Planning");  
@@ -92,7 +122,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         i3.addActionListener(this);
         
         //Hashtable created to report menu option clicked
-    	options = new Hashtable<>();
     	options.put(i1, "Class History");
     	options.put(i2, "GPA Calculation");
     	options.put(i3, "Current Courses");
@@ -106,12 +135,15 @@ public class RAPMenu extends JFrame implements ActionListener{
     	options.put(i11, "View Registered Students");
     	options.put(i12, "Assign Students to Program of Study");
     	options.put(i13, "Assign Student to Course Section");
+    	options.put(button1, "Please select option from the menu");
         
     	//Frame made visible on the screen
+    	f.add(mainLabel);
         f.setJMenuBar(mb);  
         f.setBounds(440,300,400,400);    
         f.setVisible(true);
     }
+    
     
     /**
      * This method allows the program to listen to
@@ -122,33 +154,43 @@ public class RAPMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     	mainLabel.setText(options.get(e.getSource())+" clicked");
     	f.revalidate();
-    	
-    		
-    	//Executes the associated fuctions when clicked
-        ClassHistory history = new ClassHistory();
-    	CurrentCourses courses = new CurrentCourses();  
-    	GPAcalc GPA = new GPAcalc();   
-    	ProgramOfStudy program = new ProgramOfStudy();   
-    	SuggestClasses suggest = new SuggestClasses();   
 
-        String history1 = history.ClassHistory();
-    	String[] courses1 = courses.CurrentCourses("28974");
-    	String GPA1 = GPA.GPAcalc();
-    	String program1 = program.ProgramOfStudy();
-        String suggest1 = suggest.SuggestClasses();
+        if(e.getSource()== i1) {
+        	ClassHistory history = new ClassHistory(this);
+        }
+        else if(e.getSource()== i2) { 
+        	GPACalc GPA1 = new GPACalc(this);
+        }
+        else if(e.getSource()== i3) { 
+            CurrentCourses courses1 = new CurrentCourses(this);
+        }
+        else if(e.getSource()== i4) { 
+        	ProgramOfStudy program1 = new ProgramOfStudy(this);
+        }
+        else if(e.getSource()== i5) { 
+        	SuggestClasses suggest1 = new SuggestClasses(this);
+        }
+        
+        else if(e.getActionCommand()=="GO") { 
+            studentID = textField.getText().toString();
+        	System.out.println("GO pressed");
+        	System.out.println("StudentID = " + studentID);
+        	vsFrame.dispose();
 
-        if(e.getSource()== i1) 
-        	mainLabel.setText(history1);
-        	else if(e.getSource()== i3) 
-            mainLabel.setText(courses1);
-        	else if(e.getSource()== i2) 
-            mainLabel.setText(GPA1);
-        	else if(e.getSource()== i4) 
-            mainLabel.setText(program1);  
-        	else if(e.getSource()== i5) 
-            mainLabel.setText(suggest1);
-
-
+        }
     }
+    
+    public JLabel getMainLabel() {
+    	return mainLabel;
+    }
+    
+    public String getStudentID() {
+    	return studentID;
+    }
+    
+    public JFrame getF() {
+    	return f;
+    }
+    
 	
 }
