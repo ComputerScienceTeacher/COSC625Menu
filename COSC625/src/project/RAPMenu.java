@@ -122,14 +122,14 @@ public class RAPMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     	mainLabel.setText(options.get(e.getSource())+" clicked");
     	f.revalidate();
-    	//if(e.getSource()== i7) {
+    	
     		
-    	//}
+    	
         ClassHistory history = new ClassHistory();
-    	CurrentCourses courses = new CurrentCourses();  //3
-    	GPAcalc GPA = new GPAcalc();   //2
-    	ProgramOfStudy program = new ProgramOfStudy();   //4
-    	SuggestClasses suggest = new SuggestClasses();   //5
+    	CurrentCourses courses = new CurrentCourses();  
+    	GPAcalc GPA = new GPAcalc();   
+    	ProgramOfStudy program = new ProgramOfStudy();   
+    	SuggestClasses suggest = new SuggestClasses();   
 
         String history1 = history.ClassHistory();
     	String[] courses1 = courses.CurrentCourses("28974");
@@ -139,13 +139,13 @@ public class RAPMenu extends JFrame implements ActionListener{
 
         if(e.getSource()== i1) 
         	mainLabel.setText(history1);
-        	else if(e.getSource()== i3) //{
+        	else if(e.getSource()== i3) 
             mainLabel.setText(courses1);
-        	else if(e.getSource()== i2) //{
+        	else if(e.getSource()== i2) 
             mainLabel.setText(GPA1);
-        	else if(e.getSource()== i4) //{
+        	else if(e.getSource()== i4) 
             mainLabel.setText(program1);  
-        	else if(e.getSource()== i5) //{
+        	else if(e.getSource()== i5) 
             mainLabel.setText(suggest1);
 
 
