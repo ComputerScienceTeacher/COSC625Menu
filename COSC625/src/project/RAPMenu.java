@@ -171,7 +171,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         }
         
         else if(e.getActionCommand()=="GO") { 
-            studentID = textField.getText().toString();
+          studentID = textField.getText().toString();
         	System.out.println("GO pressed");
         	System.out.println("StudentID = " + studentID);
         	vsFrame.dispose();
