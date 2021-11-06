@@ -16,19 +16,19 @@ public class CurrentCourses {
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
 		System.out.printf("Student ID is %s.%n ", rp1.getStudentID());
-		System.out.println("SELECT HIST FROM HISTORY WHERE StudentID = \'" + rp1.getStudentID() + "\';");
+		System.out.println("SELECT HISTORY FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';");
 		
 		try 
 		{ 
 			Connection conn = ds.getConnection();
 			Statement smt = conn.createStatement();
-			String sql = "SELECT HIST FROM HISTORY WHERE StudentID = \'" + rp1.getStudentID() + "\';";
+			String sql = "SELECT HISTORY FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';";
 		
 			ResultSet rs; 
 			ResultSet rs2;
 		
 			rs = smt.executeQuery(sql);
-			String[] classes = rs.getString("HIST").split("|",0);
+			String[] classes = rs.getString("HISTORY").split(";");
 			String[] hist = new String[8];
 			for(int i = 0; i < classes.length; i++) {
 				System.out.println(classes[i]);
