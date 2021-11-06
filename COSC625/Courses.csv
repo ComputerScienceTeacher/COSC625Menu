@@ -34,7 +34,7 @@ Pre-AP Geometry,3100700,1,9,0,Algebra I,none,none,none,none,none
 Mathematical Models with Applications,3102400,1,11,0,Algebra I,none,none,none,none,none
 University of Texas OnRamps – College Algebra,UM531A/UM531B,1,12,0,none,none,none,none,none,none
 Pre-Calculus,3101100,1,11,0,Algebra II; Geometry,none,none,none,none,none
-Pre-AP Pre-Calculus,3101100,1,11,0,Algebra II; Geometry,none,none,none,none,none
+Pre-AP Pre-Calculus,3101100,1,11,0,Algebra I Geometry,none,none,none,none,none
 Statistics and Business Decision Making (CTE Course),13016900,1,12,0,Algebra II,none,none,none,none,none
 AP Statistics,A3100200,1,12,0,Algebra II,none,none,none,none,none
 Advanced Animal Science (CTE Course),13000700,1,12,0,Biology; Chemistry,none,none,none,none,none
@@ -88,12 +88,12 @@ Architectural Design II,13004700,2,11,0,Architectural Design I;Geometry,none,Arc
 Practicum in Architectural Design,13004800,2,12,0,Architectural Design II,none,Architectural Design,none,none,none
 Electrical Technology I,13005600,1,11,0,none,none,Electrical,none,none,none
 Electrical Technology II,13005700,2,11,0,Electrical Technology I,none,Electrical,none,none,none
-Practicum in Construction Technology – 1st Time Taken,13005250,2,12,0,Electrical Technology II,none,Electrical,Plumbing & Pipefitting,none,none
-Practicum in Construction Technology – 2nd Time Taken,13005260,2,12,0,none,none,Electrical,Plumbing & Pipefitting,none,none
-Introduction to Welding,13032250,1,9,0,none,none,Plumbing & Pipefitting,none,none,none
-Welding I,13032300,2,10,0,Introduction to Welding,none,Plumbing & Pipefitting,none,none,none
-Welding II,13032400,2,11,0,Welding I,none,Plumbing & Pipefitting,none,none,none
-Principles of Arts; Audio/Video Technology; and Communications,13008200,1,9,0,none,none,Design and Multimedia Arts,Digital Communications,none,none
+Practicum in Construction Technology – 1st Time Taken,13005250,2,12,0,Electrical Technology II,none,Electrical,Welding,none,none
+Practicum in Construction Technology – 2nd Time Taken,13005260,2,12,0,none,none,Electrical,Welding,none,none
+Introduction to Welding,13032250,1,9,0,none,none,Welding,none,none,none
+Welding I,13032300,2,10,0,Introduction to Welding,none,Welding,none,none,none
+Welding II,13032400,2,11,0,Welding I,none,Welding,none,none,none
+Principles of Arts Audio/Video Technology and Communications,13008200,1,9,0,none,none,Design and Multimedia Arts,Digital Communications,none,none
 Graphic Design and Illustration I,13008800,1,10,0,none,none,Design and Multimedia Arts,none,none,none
 Graphic Design and Illustration II with Lab,13008910,2,11,0,Graphic Design and Illustration I,none,Design and Multimedia Arts,none,none,none
 Practicum in Graphic Design and Illustration,13009000,2,12,0,Graphic Design and Illustration II with Lab,none,Design and Multimedia Arts,none,none,none

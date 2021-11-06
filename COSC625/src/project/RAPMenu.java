@@ -139,7 +139,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	//Frame made visible on the screen
     	f.add(mainLabel);
         f.setJMenuBar(mb);  
-        f.setBounds(440,300,400,400);    
+        f.setBounds(440,300,450,450);    
         f.setVisible(true);
     }
     
@@ -190,6 +190,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     public JFrame getF() {
     	return f;
     }
-    
+      
 	
 }
