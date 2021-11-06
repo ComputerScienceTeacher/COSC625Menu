@@ -132,21 +132,21 @@ public class RAPMenu extends JFrame implements ActionListener{
     	SuggestClasses suggest = new SuggestClasses();   
 
         String history1 = history.ClassHistory();
-    	String[] courses1 = courses.CurrentCourses("28974");
+    	//String[] courses1 = courses.CurrentCourses("28974"); //Commented out because it generates an error
     	String GPA1 = GPA.GPAcalc();
     	String program1 = program.ProgramOfStudy();
         String suggest1 = suggest.SuggestClasses();
 
         if(e.getSource()== i1) 
         	mainLabel.setText(history1);
-        	else if(e.getSource()== i3) 
-            mainLabel.setText(courses1);
+        	//else if(e.getSource()== i3)   //commented out because it generates an error 
+                //mainLabel.setText(courses1);  //commented out because it generates an error
         	else if(e.getSource()== i2) 
-            mainLabel.setText(GPA1);
+                mainLabel.setText(GPA1);
         	else if(e.getSource()== i4) 
-            mainLabel.setText(program1);  
+                mainLabel.setText(program1);  
         	else if(e.getSource()== i5) 
-            mainLabel.setText(suggest1);
+                mainLabel.setText(suggest1);
 
 
     }
