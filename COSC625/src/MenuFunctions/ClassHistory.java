@@ -1,11 +1,15 @@
 package MenuFunctions;
 
+import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import project.RAPMenu;
 import org.sqlite.SQLiteDataSource;
@@ -28,15 +32,20 @@ public class ClassHistory {
 		
 			rs = smt.executeQuery(sql);
 			String[] classes = rs.getString("HISTORY").split(";");			
-			System.out.println("Student " + rp1.getStudentID() + "'s Schedule:\n--------------------------------------");
+			//System.out.println("Student " + rp1.getStudentID() + "'s Schedule:\n--------------------------------------");
 			
+			
+			rp1.getMainLabel().setText("");
 			JPanel panel = new JPanel(new GridLayout(8,1));
-			for(int i = 0; i<classes.length; i++) {
+			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s History:"));
+			for(int i = 0; i<classes.length; i++) {				
 				JTextArea label = new JTextArea(classes[i]);
-				panel.add(label);
-				System.out.println(classes[i]);
+				label.setLineWrap( true );
+				label.setWrapStyleWord(true);
+				panel.add(label, BorderLayout.SOUTH);
+				//System.out.println(classes[i]);
 			}
-			rp1.getF().add(panel);
+			rp1.getF().add(new JScrollPane(panel));
 		} 
 		catch (SQLException e) {
 		System.out.println("Unhandled SQL Exception");

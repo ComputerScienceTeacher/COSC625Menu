@@ -46,6 +46,20 @@ public class DataSource {
 	    System.out.println( "Created database successfully" );
 	}
 	
+	public void closeConnection() {
+		ds = null;
+				
+		try {
+			ds = new SQLiteDataSource();
+	        ds.setUrl("jdbc:sqlite:test.db");
+			ds.getConnection().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit( 0 );
+		}
+	}
+	
 	public void newQuery(String query) {
 		try ( Connection conn = ds.getConnection();
 	            Statement stmt = conn.createStatement(); ) {

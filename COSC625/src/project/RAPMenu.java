@@ -71,7 +71,22 @@ public class RAPMenu extends JFrame implements ActionListener{
      */
     private void setUpMenu() {
     	//setting up menu
-    	f= new JFrame("RAP (Requirements Assistance Planning)");  
+    	f= new JFrame("RAP (Requirements Assistance Planning)"); 
+    	
+    	//future implementation
+    	
+    	/*
+    	f.addWindowListener(new WindowAdapter()
+    	{
+    	    @Override
+    	    public void windowClosing(WindowEvent e)
+    	    {
+    	        super.windowClosing(e);
+    	        db1.closeConnection();
+    	    }
+    	});
+    	*/
+    	
         JMenuBar mb=new JMenuBar();
         label.setText(" ");
         mainLabel.setText("Please select a menu option");
@@ -177,6 +192,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         	vsFrame.dispose();
 
         }
+
     }
     
     public JLabel getMainLabel() {
