@@ -42,17 +42,15 @@ public class DataSource {
 	        e.printStackTrace();
 	        System.exit( 0 );
 	    }
+ 
 	
 	    System.out.println( "Created database successfully" );
 	}
 	
 	public void closeConnection() {
-		ds = null;
-				
 		try {
-			ds = new SQLiteDataSource();
-	        ds.setUrl("jdbc:sqlite:test.db");
 			ds.getConnection().close();
+			System.out.println("Database connection closed.");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +73,7 @@ public class DataSource {
 	public void addCourseTable()
 	{
 		
-		ds.setUrl("jdbc:sqlite:test.db");
+		
 		try { Connection conn = ds.getConnection();
 		Statement smt = conn.createStatement();
 		

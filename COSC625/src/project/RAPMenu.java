@@ -43,7 +43,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         button1.setActionCommand("GO");
         button1.addActionListener(this);
 		validateStudent();
-    	DataSource db1 = new DataSource();
+    	db1 = new DataSource();
     	db1.addCourseTable();
     	db1.addStudentTable();
     	db1.addHistoryTable();
@@ -73,9 +73,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	//setting up menu
     	f= new JFrame("RAP (Requirements Assistance Planning)"); 
     	
-    	//future implementation
     	
-    	/*
     	f.addWindowListener(new WindowAdapter()
     	{
     	    @Override
@@ -85,7 +83,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	        db1.closeConnection();
     	    }
     	});
-    	*/
+    
     	
         JMenuBar mb=new JMenuBar();
         label.setText(" ");
