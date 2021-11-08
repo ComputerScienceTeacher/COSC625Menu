@@ -24,10 +24,13 @@ import org.sqlite.SQLiteDataSource;
 
 public class DataSource {
 	public SQLiteDataSource ds = new SQLiteDataSource();
+	Connection conn;
+	Statement smt;
 	
 	public DataSource(){
 		ds = null;
-	
+
+				
 	    try {
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
@@ -36,12 +39,14 @@ public class DataSource {
 	        System.exit(0);
 	    }
 	    System.out.println( "Opened database successfully" );
-	
-	    try ( Connection conn = ds.getConnection() ) {
-	    } catch ( SQLException e ) {
-	        e.printStackTrace();
-	        System.exit( 0 );
-	    }
+	    
+		try {
+			conn = ds.getConnection();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			System.exit( 0 );
+		}
  
 	
 	    System.out.println( "Created database successfully" );
@@ -49,7 +54,7 @@ public class DataSource {
 	
 	public void closeConnection() {
 		try {
-			ds.getConnection().close();
+			conn.close();
 			System.out.println("Database connection closed.");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -59,8 +64,7 @@ public class DataSource {
 	}
 	
 	public void newQuery(String query) {
-		try ( Connection conn = ds.getConnection();
-	            Statement stmt = conn.createStatement(); ) {
+		try ( Statement stmt = conn.createStatement(); ) {
 	            int rv = stmt.executeUpdate( query );
 	            System.out.println( "executeUpdate() returned " + rv );
 	        
@@ -74,8 +78,7 @@ public class DataSource {
 	{
 		
 		
-		try { Connection conn = ds.getConnection();
-		Statement smt = conn.createStatement();
+		try { Statement smt = conn.createStatement();
 		
 		smt.executeUpdate("DROP TABLE COURSE");
 		
@@ -96,8 +99,7 @@ public class DataSource {
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
 		newQuery("DROP TABLE STUDENTS");
-		try { Connection conn = ds.getConnection();
-		Statement smt = conn.createStatement();
+		try { Statement smt = conn.createStatement();
 		String sql = "CREATE TABLE IF NOT EXISTS STUDENTS (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), INTERNALID VARCHAR(255), GRADE INTEGER," +
 					"PHONENUM VARCHAR(255), GENDER VARCHAR(255), GRADYEAR INTEGER, ADDRESS VARCHAR(255), SECONDPHONE VARCHAR(255)," +
@@ -118,8 +120,7 @@ public class DataSource {
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
 		newQuery("DROP TABLE HISTORY");
-		try { Connection conn = ds.getConnection();
-		Statement smt = conn.createStatement();
+		try { Statement smt = conn.createStatement();
 		String sql = "CREATE TABLE IF NOT EXISTS HISTORY (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), GRADE INTEGER, PROGRAMOFSTUDY VARCHAR(255), " +
 					"HIST VARCHAR(1255))";
@@ -159,7 +160,6 @@ public class DataSource {
 			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
 			//This skips the header line
 			String line = lineReader.readLine();
-			Connection conn = ds.getConnection();
 			Statement smt = conn.createStatement();	
 			
 			// This while loop goes through the whole CSV Iteratively
@@ -228,7 +228,6 @@ public class DataSource {
 			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
 			//This skips the header line
 			String line = lineReader.readLine();
-			Connection conn = ds.getConnection();
 			Statement smt = conn.createStatement();	
 			
 			// This while loop goes through the whole CSV Iteratively
@@ -305,7 +304,6 @@ public class DataSource {
 			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
 			//This skips the header line
 			String line = lineReader.readLine();
-			Connection conn = ds.getConnection();
 			Statement smt = conn.createStatement();	
 			
 			// This while loop goes through the whole CSV Iteratively
@@ -398,8 +396,7 @@ public class DataSource {
 			SQLiteDataSource ds;
 			ds = new SQLiteDataSource();
 			ds.setUrl("jdbc:sqlite:test.db");
-			try { Connection conn = ds.getConnection();
-			Statement smt = conn.createStatement();
+			try { Statement smt = conn.createStatement();
 			String sql2 = "DROP TABLE HISTORY";
 			
 			smt.execute(sql2);

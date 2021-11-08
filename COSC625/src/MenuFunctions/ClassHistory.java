@@ -15,6 +15,9 @@ import project.RAPMenu;
 import org.sqlite.SQLiteDataSource;
 
 public class ClassHistory {
+	
+	Connection conn;
+	Statement smt;
 
 	public ClassHistory(RAPMenu rp1) {
 		rp1.getF().repaint();
@@ -25,9 +28,8 @@ public class ClassHistory {
 		
 		
 		try 
-		{ 
-			Connection conn = ds.getConnection();
-			Statement smt = conn.createStatement();
+		{   conn = ds.getConnection();
+			smt = conn.createStatement();
 			String sql = "SELECT HISTORY FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';";
 		
 			ResultSet rs; 
@@ -52,6 +54,15 @@ public class ClassHistory {
 		catch (SQLException e) {
 		System.out.println("Unhandled SQL Exception");
 		e.printStackTrace();
+		}
+		
+		try {
+			conn.close();
+			System.out.println("Database connection closed.");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.exit( 0 );
 		}
 			
 

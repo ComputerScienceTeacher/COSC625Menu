@@ -50,7 +50,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	db1.courseImport();
     	db1.studentImport();
     	db1.historyImport();
-    	setUpMenu();    	
+    	setUpMenu();
     }
     
     
