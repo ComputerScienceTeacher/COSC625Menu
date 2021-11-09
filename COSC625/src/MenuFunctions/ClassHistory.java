@@ -18,11 +18,11 @@ public class ClassHistory {
 	
 	Connection conn;
 	Statement smt;
+	SQLiteDataSource ds;
 
 	public ClassHistory(RAPMenu rp1) {
 		rp1.getF().repaint();
 		rp1.getMainLabel().setText("Success! Class History works!");
-		SQLiteDataSource ds;
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
 		
