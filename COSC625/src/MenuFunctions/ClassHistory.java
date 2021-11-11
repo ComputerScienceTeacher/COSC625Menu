@@ -20,6 +20,12 @@ public class ClassHistory {
 	Statement smt;
 	SQLiteDataSource ds;
 
+	/**
+	 * This method calls the database to call the class history for 
+	 * the student.
+	 * 
+	 * @param rp1 - The RAPMenu passed as an object
+	 */
 	public ClassHistory(RAPMenu rp1) {
 		rp1.getF().repaint();
 		rp1.getMainLabel().setText("Success! Class History works!");

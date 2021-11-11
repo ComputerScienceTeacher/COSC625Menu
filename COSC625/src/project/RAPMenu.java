@@ -14,8 +14,8 @@ import javax.swing.*;
  * It is an extension of JFrame.
  * It implements the ActionListener for clicking the menu.
  * 
- * @author Chad Whiteley
- * @version 1.0
+ * @author Not-so-agile-developers
+ * @version 25.0
  */
 public class RAPMenu extends JFrame implements ActionListener{
     private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
@@ -33,6 +33,7 @@ public class RAPMenu extends JFrame implements ActionListener{
      * This is the general constructor for a RAPMenu window.
      */
     public RAPMenu(){
+    	//the necessary variables
     	f= new JFrame("RAP (Requirements Assistance Planning)"); 
     	mainLabel =new JLabel(); 
     	options = new Hashtable<>();
@@ -40,6 +41,8 @@ public class RAPMenu extends JFrame implements ActionListener{
     	textField=new JTextField(10);
         button1 = new JButton("GO!");
         mb = new JMenuBar();
+        
+        
         button1.setActionCommand("GO");
         button1.addActionListener(this);
 		validateStudent();
@@ -66,7 +69,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     }
     
     
-    /**
+    /*
      * This is the method for setting up the RAP Menu.
      */
     private void setUpMenu() {
