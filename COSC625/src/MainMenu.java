@@ -2,7 +2,7 @@ package main;
 
 import project.RAPMenu;
 
-public class main {
+public class MainMenu {
 
 	public static void main(String[] args) {
 		
