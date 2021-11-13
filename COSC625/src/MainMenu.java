@@ -4,7 +4,7 @@ import MenuFunctions.*;
 import DataFunctions.*;
 import project.RAPMenu;
 
-public class main {
+public class MainMenu {
 
 	public static void main(String[] args) {
 		DataSource d = new DataSource();
