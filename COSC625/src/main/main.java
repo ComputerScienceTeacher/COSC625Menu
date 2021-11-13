@@ -1,12 +1,17 @@
 package main;
 
+import MenuFunctions.*;
+import DataFunctions.*;
 import project.RAPMenu;
 
 public class main {
 
 	public static void main(String[] args) {
-		
-		new RAPMenu();
+		DataSource d = new DataSource();
+		d.addCourseTable();
+		d.courseImport();
+		CourseGenerate.CourseGenerate("25690");
+//		new RAPMenu();
 		}
 
 }

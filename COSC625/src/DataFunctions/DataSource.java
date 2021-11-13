@@ -83,7 +83,7 @@ public class DataSource {
 		smt.executeUpdate("DROP TABLE COURSE");
 		
 		String sql = "CREATE TABLE  IF NOT EXISTS COURSE (Name VARCHAR(255), CourseID VARCHAR(255), NumberOfCredits FLOAT, "
-				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CourseCoRequisite VARCHAR(255), "
+				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CoursePreRequisiteTwo VARCHAR(255), CourseCoRequisite VARCHAR(255), "
 				   + "ProgramOfStudy VARCHAR(255), ProgramOfStudyTwo VARCHAR(255), ProgramOfStudyThree VARCHAR(255), ProgramOfStudyFour VARCHAR(255))";
 		
 		smt.executeUpdate(sql);
@@ -149,6 +149,7 @@ public class DataSource {
 		int CourseLevel;
 		int NumberOfStudents;
 		String CoursePreRequisite;
+		String CoursePreRequisiteTwo;
 		String CourseCoRequisite;
 		String ProgramOfStudy;
 		String ProgramOfStudyTwo;
@@ -172,16 +173,17 @@ public class DataSource {
 					CourseLevel = Integer.valueOf(currentLine[3]);
 					NumberOfStudents = Integer.valueOf(currentLine[4]);
 					CoursePreRequisite = currentLine[5];
-					CourseCoRequisite = currentLine[6];
-					ProgramOfStudy = currentLine[7];
-					ProgramOfStudyTwo = currentLine[8];
-					ProgramOfStudyThree = currentLine[9];
-					ProgramOfStudyFour = currentLine[10];
+					CoursePreRequisiteTwo = currentLine[6];
+					CourseCoRequisite = currentLine[7];
+					ProgramOfStudy = currentLine[8];
+					ProgramOfStudyTwo = currentLine[9];
+					ProgramOfStudyThree = currentLine[10];
+					ProgramOfStudyFour = currentLine[11];
 					
-					String sql =	"INSERT INTO COURSE (Name, CourseID, NumberOfCredits, CourseLevel, NumberOfStudents, CoursePreRequisite, CourseCoRequisite, "
+					String sql =	"INSERT INTO COURSE (Name, CourseID, NumberOfCredits, CourseLevel, NumberOfStudents, CoursePreRequisite, CoursePreRequisiteTwo, CourseCoRequisite, "
 							+ "ProgramOfStudy, ProgramOfStudyTwo, ProgramOfStudyThree, ProgramOfStudyFour) VALUES"
 							+ "(\'" + Name + "\'," + "\'" + CourseID + "\'," + "\'" + NumberOfCredits + "\'," + "\'" + CourseLevel + "\'," + "\'" + NumberOfStudents 
-							+ "\'," + "\'" + CoursePreRequisite + "\'," + "\'" + CourseCoRequisite + "\',"
+							+ "\'," + "\'" + CoursePreRequisite + "\'," + "\'" + CoursePreRequisiteTwo + "\'," + "\'" + CourseCoRequisite + "\',"
 							+ "\'" + ProgramOfStudy + "\'," + "\'" + ProgramOfStudyTwo + "\'," + "\'" + ProgramOfStudyThree + "\'," + "\'" + ProgramOfStudyFour + "\')";
 					
 					smt.addBatch(sql);
@@ -392,6 +394,11 @@ public class DataSource {
 			 * This block of code makes a new table if it has yet to be created
 			 * and imports student IDs and Grades through Student Table
 			 * 
+			 * All of This is outdated and shouyld be removed once Schedule Assignment is possible
+			 * 
+			 * 
+			 * 
+			 * 
 			 */
 			SQLiteDataSource ds;
 			ds = new SQLiteDataSource();
@@ -470,8 +477,6 @@ public class DataSource {
 			}
 		}
 	}
-		
 
-	
 }
 
