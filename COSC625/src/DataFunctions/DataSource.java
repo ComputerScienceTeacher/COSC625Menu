@@ -26,6 +26,10 @@ public class DataSource {
 	public SQLiteDataSource ds = new SQLiteDataSource();
 	Connection conn;
 	Statement smt;
+
+        /**
+        * This is the constructor for Datasource
+        */
 	
 	public DataSource(){
 		ds = null;
@@ -51,6 +55,10 @@ public class DataSource {
 	
 	    System.out.println( "Created database successfully" );
 	}
+
+        /**
+        * This is method closes the connection with ds
+        */
 	
 	public void closeConnection() {
 		try {
@@ -62,6 +70,10 @@ public class DataSource {
 			System.exit( 0 );
 		}
 	}
+
+       /**
+        *
+        */
 	
 	public void newQuery(String query) {
 		try ( Statement stmt = conn.createStatement(); ) {
