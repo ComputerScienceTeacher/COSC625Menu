@@ -52,6 +52,10 @@ public class RAPMenu extends JFrame implements ActionListener{
     	db1.historyImport();
     	setUpMenu();
     }
+
+     /**
+     * This method establishes the student validation window
+     */
     
     
     private void validateStudent() {
@@ -192,14 +196,26 @@ public class RAPMenu extends JFrame implements ActionListener{
         }
 
     }
+
+     /**
+     * This method returns "mainLabel"
+     */
     
     public JLabel getMainLabel() {
     	return mainLabel;
     }
+
+     /**
+     * This method returns "student ID"
+     */
     
     public String getStudentID() {
     	return studentID;
     }
+
+     /**
+     * This method returns "f"
+     */
     
     public JFrame getF() {
     	return f;
