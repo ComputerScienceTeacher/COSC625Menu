@@ -72,7 +72,7 @@ public class DataSource {
 	}
 
        /**
-        *
+        * This function executes a query into the RAP database
         */
 	
 	public void newQuery(String query) {
@@ -85,11 +85,16 @@ public class DataSource {
 	            System.exit( 0 );
 	    }
 	}
+
+
+        
+        /**
+        * This method adds a courses table into the RAP database
+        */
 	
 	public void addCourseTable()
 	{
-		
-		
+           
 		try { Statement smt = conn.createStatement();
 		
 		smt.executeUpdate("DROP TABLE COURSE");
@@ -106,6 +111,11 @@ public class DataSource {
 			e.printStackTrace();
 		}
 	}
+
+
+        /**
+        * This method adds a student table into the RAP database
+        */
 	
 	public void addStudentTable()
 	{
@@ -128,6 +138,10 @@ public class DataSource {
 		}
 	}
 
+        /**
+        * This method adds a history table into the RAP database
+        */
+
 	public void addHistoryTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
@@ -147,7 +161,9 @@ public class DataSource {
 		}
 	}
 
-	
+	/**
+        * This method imports the courses.csv into the RAP database
+        */
 	
 	public void courseImport() {
 		//Set relative paths for DB and CSV
@@ -222,6 +238,10 @@ public class DataSource {
 		
 
 	}
+
+        /**
+        * This method imports the course_history.csv into the RAP database
+        */
 	
 	public void historyImport() {
 		//Set relative paths for DB and CSV
@@ -286,7 +306,9 @@ public class DataSource {
 	}
 	
 	
-	
+	/**
+        * This method imports the students.csv into the RAP database
+        */
 	
 	
 	public void studentImport() {
@@ -399,6 +421,8 @@ public class DataSource {
 		
 
 	}
+
+        
 
 	public void StudentHistoryGen() {
 		{
