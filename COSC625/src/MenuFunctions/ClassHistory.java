@@ -20,6 +20,10 @@ public class ClassHistory {
 	Statement smt;
 	SQLiteDataSource ds;
 
+        /**
+        * This method implements the class history menu option
+        */
+
 	public ClassHistory(RAPMenu rp1) {
 		rp1.getF().repaint();
 		rp1.getMainLabel().setText("Success! Class History works!");
