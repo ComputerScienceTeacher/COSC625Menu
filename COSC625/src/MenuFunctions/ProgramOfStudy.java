@@ -19,6 +19,10 @@ public class ProgramOfStudy {
 
 	Connection conn;
 	Statement smt; 
+
+        /**
+        * This method implements the program of study menu option
+        */
 	
 	public ProgramOfStudy(RAPMenu rp1) {
 		SQLiteDataSource ds = new SQLiteDataSource();
