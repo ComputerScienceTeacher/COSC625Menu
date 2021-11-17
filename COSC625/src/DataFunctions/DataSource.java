@@ -26,6 +26,10 @@ public class DataSource {
 	public SQLiteDataSource ds = new SQLiteDataSource();
 	Connection conn;
 	Statement smt;
+
+        /**
+        * This is the constructor for Datasource
+        */
 	
 	public DataSource(){
 		ds = null;
@@ -51,6 +55,10 @@ public class DataSource {
 	
 	    System.out.println( "Created database successfully" );
 	}
+
+        /**
+        * This is method closes the connection with ds
+        */
 	
 	public void closeConnection() {
 		try {
@@ -62,6 +70,10 @@ public class DataSource {
 			System.exit( 0 );
 		}
 	}
+
+       /**
+        * This function executes a query into the RAP database
+        */
 	
 	public void newQuery(String query) {
 		try ( Statement stmt = conn.createStatement(); ) {
@@ -73,17 +85,22 @@ public class DataSource {
 	            System.exit( 0 );
 	    }
 	}
+
+
+        
+        /**
+        * This method adds a courses table into the RAP database
+        */
 	
 	public void addCourseTable()
 	{
-		
-		
+           
 		try { Statement smt = conn.createStatement();
 		
 		smt.executeUpdate("DROP TABLE COURSE");
 		
 		String sql = "CREATE TABLE  IF NOT EXISTS COURSE (Name VARCHAR(255), CourseID VARCHAR(255), NumberOfCredits FLOAT, "
-				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CourseCoRequisite VARCHAR(255), "
+				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CoursePreRequisiteTwo VARCHAR(255), CourseCoRequisite VARCHAR(255), "
 				   + "ProgramOfStudy VARCHAR(255), ProgramOfStudyTwo VARCHAR(255), ProgramOfStudyThree VARCHAR(255), ProgramOfStudyFour VARCHAR(255))";
 		
 		smt.executeUpdate(sql);
@@ -94,6 +111,11 @@ public class DataSource {
 			e.printStackTrace();
 		}
 	}
+
+
+        /**
+        * This method adds a student table into the RAP database
+        */
 	
 	public void addStudentTable()
 	{
@@ -104,7 +126,7 @@ public class DataSource {
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), INTERNALID VARCHAR(255), GRADE INTEGER," +
 					"PHONENUM VARCHAR(255), GENDER VARCHAR(255), GRADYEAR INTEGER, ADDRESS VARCHAR(255), SECONDPHONE VARCHAR(255)," +
 					"BIRTHDATE VARCHAR(255),  THIRDPHONE VARCHAR(255), EMAILADDRESS VARCHAR(255), DUALCREDIT VARCHAR(255)," +
-					"PROGRAMOFSTUDY VARCHAR(255), HISTORY VARCHAR(255))";
+					"PROGRAMOFSTUDY VARCHAR(255), HISTORY VARCHAR(255), SCHEDULE VARCHAR(255))";
 
 		
 		smt.executeUpdate(sql);
@@ -115,6 +137,10 @@ public class DataSource {
 			e.printStackTrace();
 		}
 	}
+
+        /**
+        * This method adds a history table into the RAP database
+        */
 
 	public void addHistoryTable()
 	{
@@ -135,7 +161,9 @@ public class DataSource {
 		}
 	}
 
-	
+	/**
+        * This method imports the courses.csv into the RAP database
+        */
 	
 	public void courseImport() {
 		//Set relative paths for DB and CSV
@@ -149,6 +177,7 @@ public class DataSource {
 		int CourseLevel;
 		int NumberOfStudents;
 		String CoursePreRequisite;
+		String CoursePreRequisiteTwo;
 		String CourseCoRequisite;
 		String ProgramOfStudy;
 		String ProgramOfStudyTwo;
@@ -172,16 +201,17 @@ public class DataSource {
 					CourseLevel = Integer.valueOf(currentLine[3]);
 					NumberOfStudents = Integer.valueOf(currentLine[4]);
 					CoursePreRequisite = currentLine[5];
-					CourseCoRequisite = currentLine[6];
-					ProgramOfStudy = currentLine[7];
-					ProgramOfStudyTwo = currentLine[8];
-					ProgramOfStudyThree = currentLine[9];
-					ProgramOfStudyFour = currentLine[10];
+					CoursePreRequisiteTwo = currentLine[6];
+					CourseCoRequisite = currentLine[7];
+					ProgramOfStudy = currentLine[8];
+					ProgramOfStudyTwo = currentLine[9];
+					ProgramOfStudyThree = currentLine[10];
+					ProgramOfStudyFour = currentLine[11];
 					
-					String sql =	"INSERT INTO COURSE (Name, CourseID, NumberOfCredits, CourseLevel, NumberOfStudents, CoursePreRequisite, CourseCoRequisite, "
+					String sql =	"INSERT INTO COURSE (Name, CourseID, NumberOfCredits, CourseLevel, NumberOfStudents, CoursePreRequisite, CoursePreRequisiteTwo, CourseCoRequisite, "
 							+ "ProgramOfStudy, ProgramOfStudyTwo, ProgramOfStudyThree, ProgramOfStudyFour) VALUES"
 							+ "(\'" + Name + "\'," + "\'" + CourseID + "\'," + "\'" + NumberOfCredits + "\'," + "\'" + CourseLevel + "\'," + "\'" + NumberOfStudents 
-							+ "\'," + "\'" + CoursePreRequisite + "\'," + "\'" + CourseCoRequisite + "\',"
+							+ "\'," + "\'" + CoursePreRequisite + "\'," + "\'" + CoursePreRequisiteTwo + "\'," + "\'" + CourseCoRequisite + "\',"
 							+ "\'" + ProgramOfStudy + "\'," + "\'" + ProgramOfStudyTwo + "\'," + "\'" + ProgramOfStudyThree + "\'," + "\'" + ProgramOfStudyFour + "\')";
 					
 					smt.addBatch(sql);
@@ -208,6 +238,10 @@ public class DataSource {
 		
 
 	}
+
+        /**
+        * This method imports the course_history.csv into the RAP database
+        */
 	
 	public void historyImport() {
 		//Set relative paths for DB and CSV
@@ -272,7 +306,9 @@ public class DataSource {
 	}
 	
 	
-	
+	/**
+        * This method imports the students.csv into the RAP database
+        */
 	
 	
 	public void studentImport() {
@@ -298,6 +334,7 @@ public class DataSource {
 		String DualCredit;
 		String ProgramOfStudy;
 		String History;
+		String Schedule;
 		
 		//Set up Line Reader for CSV
 		try {
@@ -327,6 +364,7 @@ public class DataSource {
 					DualCredit = currentLine[14];
 					ProgramOfStudy = currentLine[15];
 					History = currentLine[16];
+					Schedule = currentLine[17];
 					
 					
 					
@@ -354,11 +392,11 @@ public class DataSource {
 					
 					String sql =	"INSERT INTO STUDENTS (LastName, FirstName, MiddleName, StudentID, INTERNALID, GRADE, PHONENUM," +
 									"GENDER, GRADYEAR, ADDRESS, SECONDPHONE, BIRTHDATE,  THIRDPHONE, EMAILADDRESS, DUALCREDIT," +
-									"PROGRAMOFSTUDY, HISTORY) VALUES"
+									"PROGRAMOFSTUDY, HISTORY, SCHEDULE) VALUES"
 							+ "(\'" + LastName + "\'," + "\'" + FirstName + "\'," + "\'" + MiddleName + "\'," + "\'" + StudentID + "\'," + "\'" + InternalID 
 							+ "\'," + "\'" + Grade + "\'," + "\'" + PhoneNum + "\'," + "\'" + Gender + "\'," + "\'" + GradYear +"\'," + "\'" + Address  
 							+ "\'," + "\'" + SecondPhone + "\'," + "\'" + BirthDate + "\'," + "\'" + ThirdPhone + "\'," + "\'" + EmailAddress   
-							+ "\'," + "\'"+ DualCredit + "\',"  + "\'" + ProgramOfStudy +"\',"  + "\'" + History + "\')";
+							+ "\'," + "\'"+ DualCredit + "\',"  + "\'" + ProgramOfStudy +"\',"  + "\'" + History + "\'," + "\'" + Schedule + "\')";
 									
 					
 					smt.addBatch(sql);
@@ -386,11 +424,18 @@ public class DataSource {
 
 	}
 
+        
+
 	public void StudentHistoryGen() {
 		{
 			/*
 			 * This block of code makes a new table if it has yet to be created
 			 * and imports student IDs and Grades through Student Table
+			 * 
+			 * All of This is outdated and shouyld be removed once Schedule Assignment is possible
+			 * 
+			 * 
+			 * 
 			 * 
 			 */
 			SQLiteDataSource ds;
@@ -470,8 +515,6 @@ public class DataSource {
 			}
 		}
 	}
-		
 
-	
 }
 

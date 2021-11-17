@@ -1,117 +1,117 @@
-Name,CourseID,NumberOfCredits,CourseLevel,NumberOfStudents,CoursePreRequisite,CourseCoRequisite,ProgramOfStudy,ProgramOfStudyTwo,ProgramOfStudyThree,ProgramOfStudyFour
-English I,3220100,1,9,0,none,none,none,none,none,none
-English II,3220200,1,10,0,English I,none,none,none,none,none
-English III,3220300,1,11,0,none,none,none,none,none,none
-English IV,3220400,1,12,0,none,none,none,none,none,none
-Pre-AP English I,3220100,1,9,0,none,none,none,none,none,none
-Pre-AP English II,3220200,1,10,0,none,none,none,none,none,none
-AP English III Language and Composition,A3220100,1,11,0,none,none,none,none,none,none
-AP English IV Literature and Composition,A3220200,1,12,0,none,none,none,none,none,none
-College Preperatory Course ELA,CP110100,0.5,10,0,none,none,none,none,none,none
-Communications Applications Dual Credit (San Jacinto College),3241400,0.5,11,0,none,none,none,none,none,none
-Creative Writing,3221200,0.5,11,0,none,none,none,none,none,none
-English IV Dual credit (San Jancito College - ENG 1301/1302),3220400,1,12,0,none,none,none,none,none,none
-Independent Study in English Hebrew Scriptures and the New Testament,03221830/03221840,1,9,0,none,none,none,none,none,none
-Journalism,3230100,1,9,0,none,none,none,none,none,none
-Journalism: Yearbook Production I,3230110,1,10,0,Journalism,none,none,none,none,none
-Journalism: Yearbook Production II,3230120,1,11,0,Journalism: Yearbook Production I,none,none,none,none,none
-Journalism: Yearbook Production III,3230130,1,12,0,Journalism: Yearbook Production II,none,none,none,none,none
-Newcomers English Language Development (A&B),N1280042/N1280043,1,9,0,none,none,none,none,none,none
-Photojournalism,3230800,1,10,0,Journalism,none,none,none,none,none
-Practical Writing,3221300,0.5,10,0,none,none,none,none,none,none
-University of Texas OnRamps – English IV,UE431A/UE431B,1,12,0,none,none,none,none,none,none
-PSAT/SAT/ACT Prep: Independent Study in English,3221800,0.5,9,0,none,none,none,none,none,none
-Social Intelligence for ESL Students,N1280041,0.5,9,0,none,none,none,none,none,none
-Algebra I,3100500,1,9,0,none,none,none,none,none,none
-Algebra II,3100600,1,10,0,Algebra I,none,none,none,none,none
-Pre-AP Algebra II,3100600,1,10,0,Algebra I,none,none,none,none,none
-Algebra III/Dual Credit College Algebra (San Jacinto College),3102500,1,11,0,none,none,none,none,none,none
-Algebraic Reasoning,3102540,1,9,0,none,none,none,none,none,none
-AP Calculus AB,A3100101,1,12,0,none,none,none,none,none,none
-College Preparatory Course Mathematics,CP111200,1,10,0,Algebra II,none,none,none,none,none
-Geometry,3100700,1,9,0,Algebra I,none,none,none,none,none
-Pre-AP Geometry,3100700,1,9,0,Algebra I,none,none,none,none,none
-Mathematical Models with Applications,3102400,1,11,0,Algebra I,none,none,none,none,none
-University of Texas OnRamps – College Algebra,UM531A/UM531B,1,12,0,none,none,none,none,none,none
-Pre-Calculus,3101100,1,11,0,Algebra II; Geometry,none,none,none,none,none
-Pre-AP Pre-Calculus,3101100,1,11,0,Algebra I Geometry,none,none,none,none,none
-Statistics and Business Decision Making (CTE Course),13016900,1,12,0,Algebra II,none,none,none,none,none
-AP Statistics,A3100200,1,12,0,Algebra II,none,none,none,none,none
-Advanced Animal Science (CTE Course),13000700,1,12,0,Biology; Chemistry,none,none,none,none,none
-Advanced Plant & Soil Science (CTE Course),13002100,1,12,0,Biology; Chemistry,none,none,none,none,none
-Anatomy and Physiology (CTE Course),13020600,1,12,0,Biology; Chemistry,none,none,none,none,none
-Biology,3010200,1,9,0,none,none,none,none,none,none
-Pre AP Biology,3010200,1,9,0,none,none,none,none,none,none
-AP Biology,A3010200,1,11,0,none,none,none,none,none,none
-Chemistry,3040000,1,10,0,Algebra I; Biology,none,none,none,none,none
-AP Chemistry,A3040000,1,11,0,Algebra II; Chemistry,none,none,none,none,none
-Earth and Space Science,3060200,1,11,0,none,none,none,none,none,none
-Forensic Science (CTE course),13029500,1,11,0,Biology; Chemistry,none,none,none,none,none
-Integrated Physics and Chemistry (IPC),3060201,1,9,0,none,none,none,none,none,none
-Physics,3050000,1,11,0,none,none,none,none,none,none
-AP Physics I,A3050001,1,11,0,none,Calculus,none,none,none,none
-Economics,3310300,1,12,0,none,none,none,none,none,none
-Ethnic Studies: African American Studies,3380085,1,10,0,none,none,none,none,none,none
-Ethnic Studies: Mexican American Studies,3380084,1,10,0,none,none,none,none,none,none
-Introduction to Philosophy Dual Credit (San Jacinto College),338002,0.5,11,0,none,none,none,none,none,none
-Introduction to Sociology Dual Credit (San Jacinto College),3380032,0.5,11,0,none,none,none,none,none,none
-Learning Framework Foundation of Success Dual Credit (San Jacinto College),3380023,0.5,11,0,none,none,none,none,none,none
-AP Macroeconomics,A33102000,0.5,12,0,none,none,none,none,none,none
-Personal Financial Literacy,3380082,0.5,10,0,none,none,none,none,none,none
-Special Topics in Social Studies – United States History through Film,3380002,0.5,11,0,none,none,none,none,none,none
-Special Topics in Social Studies – Wolrd History through Film,3380002,0.5,11,0,none,none,none,none,none,none
-United States History,3340100,1,11,0,none,none,none,none,none,none
-AP United States History,A3340100,1,11,0,none,none,none,none,none,none
-United States Government,3330100,0.5,12,0,none,none,none,none,none,none
-AP United States Government and Politics,A3330100,0.5,12,0,none,none,none,none,none,none
-United States Government Dual Credit (San Jacinto College),3330100,1,12,0,none,none,none,none,none,none
-World Geography,3320100,1,9,0,none,none,none,none,none,none
-Pre-AP World Geography,3320100,1,9,0,none,none,none,none,none,none
-World History,3340400,1,10,0,none,none,none,none,none,none
-AP World History,3340400,1,10,0,none,none,none,none,none,none
-Principles of Agriculture; Food & Natural Resources,13000200,1,9,0,none,none,Animal Science,Applied Agricultural Engineering,Plant Science,none
-Small Animal Management,13000400,0.5,10,0,none,none,Animal Science,none,none,none
-Equine Science,13000500,0.5,10,0,none,none,Animal Science,none,none,none
-Livestock Production,13000300,1,10,0,none,none,Animal Science,none,none,none
-Advanced Animal Science (Satisfies a science credit),13000700,1,11,0,none,none,Animal Science,none,none,none
-Veterinary Medical Applications,13000600,1,11,0,none,none,Animal Science,none,none,none
-Agricultural Mechanics and Metal Technologies (NCCER Certification),13002200,1,10,0,none,none,Applied Agricultural Engineering,none,none,none
-Agricultural Structures Design and Fabrication,13002300,1,11,0,Agricultural Mechanics and Metal Technologies (NCCER Certification),none,Applied Agricultural Engineering,none,none,none
-Agricultural Equipment Design and Fabrication,13002350,1,11,0,Agricultural Structures Design and Fabrication,none,Applied Agricultural Engineering,none,none,none
-Horticultural Science,13002000,1,10,0,none,none,Plant Science,none,none,none
-Floral Design (Satisfies a fine arts credit),13001800,1,11,0,Principles of Agriculture; Food & Natural Resources,none,Plant Science,none,none,none
-Advanced Plant & Soil Science (Satisfies a science credit),13002100,1,12,0,Biology;Chemistry;Physics,none,Plant Science,none,none,none
-Practicum in Agriculture; Food; and Natural Resources,13002500,2,12,0,1 Course in Program,none,Plant Science,Applied Agricultural Engineering,Animal Science,none
-Principles of Architecture,13004210,1,9,0,none,none,Architectural Design,Electrical,none,none
-Architectural Design I,13004600,1,10,0,Algebra I;English I,none,Architectural Design,Electrical,none,none
-Architectural Design II,13004700,2,11,0,Architectural Design I;Geometry,none,Architectural Design,none,none,none
-Practicum in Architectural Design,13004800,2,12,0,Architectural Design II,none,Architectural Design,none,none,none
-Electrical Technology I,13005600,1,11,0,none,none,Electrical,none,none,none
-Electrical Technology II,13005700,2,11,0,Electrical Technology I,none,Electrical,none,none,none
-Practicum in Construction Technology – 1st Time Taken,13005250,2,12,0,Electrical Technology II,none,Electrical,Welding,none,none
-Practicum in Construction Technology – 2nd Time Taken,13005260,2,12,0,none,none,Electrical,Welding,none,none
-Introduction to Welding,13032250,1,9,0,none,none,Welding,none,none,none
-Welding I,13032300,2,10,0,Introduction to Welding,none,Welding,none,none,none
-Welding II,13032400,2,11,0,Welding I,none,Welding,none,none,none
-Principles of Arts Audio/Video Technology and Communications,13008200,1,9,0,none,none,Design and Multimedia Arts,Digital Communications,none,none
-Graphic Design and Illustration I,13008800,1,10,0,none,none,Design and Multimedia Arts,none,none,none
-Graphic Design and Illustration II with Lab,13008910,2,11,0,Graphic Design and Illustration I,none,Design and Multimedia Arts,none,none,none
-Practicum in Graphic Design and Illustration,13009000,2,12,0,Graphic Design and Illustration II with Lab,none,Design and Multimedia Arts,none,none,none
-Professional Communications,13009900,0.5,9,0,none,none,Digital Communications,none,none,none
-Audio/Video Production I,13008500,1,10,0,none,none,Digital Communications,none,none,none
-Audio/Video Production II with Lab,13008610,2,11,0,Audio/Video Production I,none,Digital Communications,none,none,none
-Practicum in Audio/Video Production,13008700,2,12,0,Audio/Video Production II with Lab,none,Digital Communications,none,none,none
-Principles of Business; Marketing; and Finance,13011200,1,9,0,none,none,Accounting & Financial Services,Business Management,none,none
-Business Information Management I,13011400,1,9,0,none,none,Accounting & Financial Services,none,none,none
-Accounting I,13016600,1,10,0,none,none,Accounting & Financial Services,none,none,none
-Banking and Financial Services,13016300,0.5,10,0,none,none,Accounting & Financial Services,none,none,none
-Accounting II,13016700,1,11,0,Accounting I,none,Accounting & Financial Services,none,none,none
-Money Matters,13016200,1,10,0,none,none,Accounting & Financial Services,none,none,none
-Practicum in Business Management,13012200,2,12,0,none,none,Accounting & Financial Services,Business Management,none,none
-Business Information Management I,13011400,1,9,0,none,none,Business Management,none,none,none
-Business Law,13011700,1,10,0,none,none,Business Management,none,none,none
-Virtual Business,13012000,0.5,10,0,none,none,Business Management,none,none,none
-Human Resources Management,13011900,0.5,11,0,none,none,Business Management,none,none,none
-Business Information Management II,13011500,1,11,0,Business Information Management I,none,Business Management,none,none,none
-Statistics and Business Decision Making,13016900,1,12,0,Algebra II,none,Business Management,none,none,none
-Career Preparation I,12701305,3,12,0,none,none,Business Management,Accounting & Financial Services,Architectural Design,Design and Multimedia Arts
+Name,CourseID,NumberOfCredits,CourseLevel,NumberOfStudents,CoursePreRequisite,CoursePreRequisiteTwo,CourseCoRequisite,ProgramOfStudy,ProgramOfStudyTwo,ProgramOfStudyThree,ProgramOfStudyFour
+English I,3220100,1,9,0,none,none,none,English,none,none,none
+English II,3220200,1,10,0,English I,none,none,English,none,none,none
+English III,3220300,1,11,0,English II,none,none,English,none,none,none
+English IV,3220400,1,12,0,English III,none,none,English,none,none,none
+Pre-AP English I,3220100,1,9,0,none,none,none,English,none,none,none
+Pre-AP English II,3220200,1,10,0,Pre-AP English I,none,none,English,none,none,none
+AP English III Language and Composition,A3220100,1,11,0,Pre-AP English II,none,none,English,none,none,none
+AP English IV Literature and Composition,A3220200,1,12,0,AP English III Language and Composition,none,none,English,none,none,none
+College Preperatory Course ELA,CP110100,0.5,10,0,Elective,none,none,English,none,none,none
+Communications Applications Dual Credit (San Jacinto College),3241400,0.5,11,0,Elective,none,none,English,none,none,none
+Creative Writing,3221200,0.5,11,0,Elective,none,none,English,none,none,none
+English IV Dual credit (San Jancito College - ENG 1301/1302),3220400,1,12,0,Elective,none,none,English,none,none,none
+Independent Study in English Hebrew Scriptures and the New Testament,03221830/03221840,1,9,0,Elective,none,none,English,none,none,none
+Journalism,3230100,1,9,0,Elective,none,none,English,none,none,none
+Journalism: Yearbook Production I,3230110,1,10,0,Journalism,none,none,English,none,none,none
+Journalism: Yearbook Production II,3230120,1,11,0,Journalism: Yearbook Production I,none,none,English,none,none,none
+Journalism: Yearbook Production III,3230130,1,12,0,Journalism: Yearbook Production II,none,none,English,none,none,none
+Newcomers English Language Development (A&B),N1280042/N1280043,1,9,0,none,none,none,English,none,none,none
+Photojournalism,3230800,1,10,0,Journalism,none,none,English,none,none,none
+Practical Writing,3221300,0.5,10,0,Elective,none,none,English,none,none,none
+University of Texas OnRamps – English IV,UE431A/UE431B,1,12,0,Elective,none,none,English,none,none,none
+PSAT/SAT/ACT Prep: Independent Study in English,3221800,0.5,9,0,Elective,none,none,English,none,none,none
+Social Intelligence for ESL Students,N1280041,0.5,9,0,Elective,none,none,English,none,none,none
+Algebra I,3100500,1,9,0,none,none,none,Math,none,none,none
+Algebra II,3100600,1,10,0,Algebra I,none,none,Math,none,none,none
+Pre-AP Algebra II,3100600,1,10,0,Algebra I,none,none,Math,none,none,none
+Algebra III/Dual Credit College Algebra (San Jacinto College),3102500,1,11,0,Elective,none,none,Math,none,none,none
+Algebraic Reasoning,3102540,1,9,0,Elective,none,none,Math,none,none,none
+AP Calculus AB,A3100101,1,12,0,Pre-Calculus,none,none,Math,none,none,none
+College Preparatory Course Mathematics,CP111200,1,10,0,Algebra II,none,none,Math,none,none,none
+Geometry,3100700,1,9,0,Algebra I,none,none,Math,none,none,none
+Pre-AP Geometry,3100700,1,9,0,Algebra I,none,none,Math,none,none,none
+Mathematical Models with Applications,3102400,1,11,0,Algebra I,none,none,Math,none,none,none
+University of Texas OnRamps – College Algebra,UM531A/UM531B,1,12,0,Elective,none,none,Math,none,none,none
+Pre-Calculus,3101100,1,11,0,Algebra II,Geometry,none,Math,none,none,none
+Pre-AP Pre-Calculus,3101100,1,11,0,Algebra I,Geometry,none,Math,none,none,none
+Statistics and Business Decision Making (CTE Course),13016900,1,12,0,Algebra II,Elective,none,Math,none,none,none
+AP Statistics,A3100200,1,12,0,Algebra II,none,none,Math,none,none,none
+Advanced Animal Science (CTE Course),13000700,1,12,0,Elective,Chemistry,none,Science,none,none,none
+Advanced Plant & Soil Science (CTE Course),13002100,1,12,0,Elective,Chemistry,none,Science,none,none,none
+Anatomy and Physiology (CTE Course),13020600,1,12,0,Elective,Chemistry,none,Science,none,none,none
+Biology,3010200,1,9,0,none,none,none,Science,none,none,none
+Pre AP Biology,3010200,1,9,0,none,none,none,Science,none,none,none
+AP Biology,A3010200,1,11,0,Pre-AP Biology,none,none,Science,none,none,none
+Chemistry,3040000,1,10,0,Algebra I,Biology,none,Science,none,none,none
+AP Chemistry,A3040000,1,11,0,Algebra II,Chemistry,none,Science,none,none,none
+Earth and Space Science,3060200,1,11,0,Chemistry,none,none,Science,none,none,none
+Forensic Science (CTE course),13029500,1,11,0,Biology,Chemistry,none,Science,none,none,none
+Integrated Physics and Chemistry (IPC),3060201,1,9,0,none,none,none,Science,none,none,none
+Physics,3050000,1,11,0,Chemistry,none,none,Science,none,none,none
+AP Physics I,A3050001,1,11,0,Physics,none,Calculus,Science,none,none,none
+Economics,3310300,1,12,0,none,none,none,History,none,none,none
+Ethnic Studies: African American Studies,3380085,1,10,0,Elective,none,none,History,none,none,none
+Ethnic Studies: Mexican American Studies,3380084,1,10,0,Elective,none,none,History,none,none,none
+Introduction to Philosophy Dual Credit (San Jacinto College),338002,0.5,11,0,Elective,none,none,History,none,none,none
+Introduction to Sociology Dual Credit (San Jacinto College),3380032,0.5,11,0,Elective,none,none,History,none,none,none
+Learning Framework Foundation of Success Dual Credit (San Jacinto College),3380023,0.5,11,0,Elective,none,none,History,none,none,none
+AP Macroeconomics,A33102000,0.5,12,0,Elective,none,none,History,none,none,none
+Personal Financial Literacy,3380082,0.5,10,0,Elective,none,none,History,none,none,none
+Special Topics in Social Studies – United States History through Film,3380002,0.5,11,0,Elective,none,none,History,none,none,none
+Special Topics in Social Studies – Wolrd History through Film,3380002,0.5,11,0,Elective,none,none,History,none,none,none
+United States History,3340100,1,11,0,World History,none,none,History,none,none,none
+AP United States History,A3340100,1,11,0,AP World History,none,none,History,none,none,none
+United States Government,3330100,1,12,0,United States History,none,none,History,none,none,none
+AP United States Government and Politics,A3330100,1,12,0,AP United States History,none,none,History,none,none,none
+United States Government Dual Credit (San Jacinto College),3330100,1,12,0,Elective,none,none,History,none,none,none
+World Geography,3320100,1,9,0,none,none,none,History,none,none,none
+Pre-AP World Geography,3320100,1,9,0,none,none,none,History,none,none,none
+World History,3340400,1,10,0,World Geography,none,none,History,none,none,none
+AP World History,3340400,1,10,0,Pre-AP World Geography,none,none,History,none,none,none
+Principles of Agriculture;Food & Natural Resources,13000200,1,9,0,none,none,none,Animal Science,Applied Agricultural Engineering,Plant Science,none
+Small Animal Management,13000400,0.5,10,0,none,none,none,Animal Science,none,none,none
+Equine Science,13000500,0.5,10,0,none,none,none,Animal Science,none,none,none
+Livestock Production,13000300,1,10,0,none,none,none,Animal Science,none,none,none
+Advanced Animal Science (Satisfies a science credit),13000700,1,11,0,none,none,none,Animal Science,none,none,none
+Veterinary Medical Applications,13000600,1,11,0,none,none,none,Animal Science,none,none,none
+Agricultural Mechanics and Metal Technologies (NCCER Certification),13002200,1,10,0,none,none,none,Applied Agricultural Engineering,none,none,none
+Agricultural Structures Design and Fabrication,13002300,1,11,0,Agricultural Mechanics and Metal Technologies (NCCER Certification),none,none,Applied Agricultural Engineering,none,none,none
+Agricultural Equipment Design and Fabrication,13002350,1,11,0,Agricultural Structures Design and Fabrication,none,none,Applied Agricultural Engineering,none,none,none
+Horticultural Science,13002000,1,10,0,none,none,none,Plant Science,none,none,none
+Floral Design (Satisfies a fine arts credit),13001800,1,11,0,Principles of Agriculture;Food & Natural Resources,,none,Plant Science,none,none,none
+Advanced Plant & Soil Science (Satisfies a science credit),13002100,1,12,0,Chemistry,Physiscs,none,Plant Science,none,none,none
+Practicum in Agriculture;Food;and Natural Resources,13002500,2,12,0,none,none,none,Plant Science,Applied Agricultural Engineering,Animal Science,none
+Principles of Architecture,13004210,1,9,0,none,none,none,Architectural Design,Electrical,none,none
+Architectural Design I,13004600,1,10,0,Algebra I;English I,none,none,Architectural Design,Electrical,none,none
+Architectural Design II,13004700,2,11,0,Architectural Design I,none,none,Architectural Design,none,none,none
+Practicum in Architectural Design,13004800,2,12,0,Architectural Design II,none,none,Architectural Design,none,none,none
+Electrical Technology I,13005600,1,11,0,none,none,none,Electrical,none,none,none
+Electrical Technology II,13005700,2,11,0,Electrical Technology I,none,none,Electrical,none,none,none
+Practicum in Construction Technology – 1st Time Taken,13005250,2,12,0,Electrical Technology II,none,none,Electrical,Welding,none,none
+Practicum in Construction Technology – 2nd Time Taken,13005260,2,12,0,none,none,none,Electrical,Welding,none,none
+Introduction to Welding,13032250,1,9,0,none,none,none,Welding,none,none,none
+Welding I,13032300,2,10,0,Introduction to Welding,none,none,Welding,none,none,none
+Welding II,13032400,2,11,0,Welding I,none,none,Welding,none,none,none
+Principles of Arts Audio/Video Technology and Communications,13008200,1,9,0,none,none,none,Design and Multimedia Arts,Digital Communications,none,none
+Graphic Design and Illustration I,13008800,1,10,0,none,none,none,Design and Multimedia Arts,none,none,none
+Graphic Design and Illustration II with Lab,13008910,2,11,0,Graphic Design and Illustration I,none,none,Design and Multimedia Arts,none,none,none
+Practicum in Graphic Design and Illustration,13009000,2,12,0,Graphic Design and Illustration II with Lab,none,none,Design and Multimedia Arts,none,none,none
+Professional Communications,13009900,0.5,9,0,none,none,none,Digital Communications,none,none,none
+Audio/Video Production I,13008500,1,10,0,none,none,none,Digital Communications,none,none,none
+Audio/Video Production II with Lab,13008610,2,11,0,Audio/Video Production I,none,none,Digital Communications,none,none,none
+Practicum in Audio/Video Production,13008700,2,12,0,Audio/Video Production II with Lab,none,none,Digital Communications,none,none,none
+Principles of Business;Marketing;and Finance,13011200,1,9,0,none,none,none,Accounting & Financial Services,Business Management,none,none
+Business Information Management I,13011400,1,9,0,none,none,none,Accounting & Financial Services,none,none,none
+Accounting I,13016600,1,10,0,none,none,none,Accounting & Financial Services,none,none,none
+Banking and Financial Services,13016300,0.5,10,0,none,none,none,Accounting & Financial Services,none,none,none
+Accounting II,13016700,1,11,0,Accounting I,none,none,Accounting & Financial Services,none,none,none
+Money Matters,13016200,1,10,0,none,none,none,Accounting & Financial Services,none,none,none
+Practicum in Business Management,13012200,2,12,0,none,none,none,Accounting & Financial Services,Business Management,none,none
+Business Information Management I,13011400,1,9,0,none,none,none,Business Management,none,none,none
+Business Law,13011700,1,10,0,none,none,none,Business Management,none,none,none
+Virtual Business,13012000,0.5,10,0,none,none,none,Business Management,none,none,none
+Human Resources Management,13011900,0.5,11,0,none,none,none,Business Management,none,none,none
+Business Information Management II,13011500,1,11,0,Business Information Management I,none,none,Business Management,none,none,none
+Statistics and Business Decision Making,13016900,1,12,0,Algebra II,none,none,Business Management,none,none,none
+Career Preparation I,12701305,3,12,0,none,none,none,Business Management,Accounting & Financial Services,Architectural Design,Design and Multimedia Arts
