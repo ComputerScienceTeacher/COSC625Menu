@@ -126,7 +126,7 @@ public class DataSource {
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), INTERNALID VARCHAR(255), GRADE INTEGER," +
 					"PHONENUM VARCHAR(255), GENDER VARCHAR(255), GRADYEAR INTEGER, ADDRESS VARCHAR(255), SECONDPHONE VARCHAR(255)," +
 					"BIRTHDATE VARCHAR(255),  THIRDPHONE VARCHAR(255), EMAILADDRESS VARCHAR(255), DUALCREDIT VARCHAR(255)," +
-					"PROGRAMOFSTUDY VARCHAR(255), HISTORY VARCHAR(255))";
+					"PROGRAMOFSTUDY VARCHAR(255), HISTORY VARCHAR(255), SCHEDULE VARCHAR(255))";
 
 		
 		smt.executeUpdate(sql);
@@ -334,6 +334,7 @@ public class DataSource {
 		String DualCredit;
 		String ProgramOfStudy;
 		String History;
+		String Schedule;
 		
 		//Set up Line Reader for CSV
 		try {
@@ -363,6 +364,7 @@ public class DataSource {
 					DualCredit = currentLine[14];
 					ProgramOfStudy = currentLine[15];
 					History = currentLine[16];
+					Schedule = currentLine[17];
 					
 					
 					
@@ -390,11 +392,11 @@ public class DataSource {
 					
 					String sql =	"INSERT INTO STUDENTS (LastName, FirstName, MiddleName, StudentID, INTERNALID, GRADE, PHONENUM," +
 									"GENDER, GRADYEAR, ADDRESS, SECONDPHONE, BIRTHDATE,  THIRDPHONE, EMAILADDRESS, DUALCREDIT," +
-									"PROGRAMOFSTUDY, HISTORY) VALUES"
+									"PROGRAMOFSTUDY, HISTORY, SCHEDULE) VALUES"
 							+ "(\'" + LastName + "\'," + "\'" + FirstName + "\'," + "\'" + MiddleName + "\'," + "\'" + StudentID + "\'," + "\'" + InternalID 
 							+ "\'," + "\'" + Grade + "\'," + "\'" + PhoneNum + "\'," + "\'" + Gender + "\'," + "\'" + GradYear +"\'," + "\'" + Address  
 							+ "\'," + "\'" + SecondPhone + "\'," + "\'" + BirthDate + "\'," + "\'" + ThirdPhone + "\'," + "\'" + EmailAddress   
-							+ "\'," + "\'"+ DualCredit + "\',"  + "\'" + ProgramOfStudy +"\',"  + "\'" + History + "\')";
+							+ "\'," + "\'"+ DualCredit + "\',"  + "\'" + ProgramOfStudy +"\',"  + "\'" + History + "\'," + "\'" + Schedule + "\')";
 									
 					
 					smt.addBatch(sql);
