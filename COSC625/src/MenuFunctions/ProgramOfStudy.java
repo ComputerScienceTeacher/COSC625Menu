@@ -39,13 +39,13 @@ public class ProgramOfStudy {
 			
 			String prog = rs.getString("PROGRAMOFSTUDY");
 			
-			JPanel panel = new JPanel(new GridLayout(1,1));
 			rp1.getF().repaint();
 			rp1.getMainLabel().setText("");
+			JPanel panel=rp1.getMainPanel();
+			panel.removeAll();
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s Program of Study:"));
 			JLabel label=new JLabel(prog);
 			panel.add(label, BorderLayout.SOUTH);
-			rp1.getF().add(panel);
 			//return prog;
 			  
 		} 

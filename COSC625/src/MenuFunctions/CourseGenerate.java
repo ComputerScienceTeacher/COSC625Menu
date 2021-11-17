@@ -29,26 +29,25 @@ import project.RAPMenu;
  *
  */
 public class CourseGenerate {
-
-	public static String[] CourseGenerate(String rp1) {
+	SQLiteDataSource ds;
+	Connection conn;
+	Statement smt;
+	String[] courses;
+	
+	public CourseGenerate(RAPMenu rp1) {
 		
 		// Pull all relevant info for Student
 		
-		SQLiteDataSource ds = new SQLiteDataSource();
-		Connection conn = null ;
-		Statement smt;
-		String[] courses = new String[8];
+		courses = new String[8];
 		int count = 0;
-		
-		
+		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
-		
-		
+				
 		try {
 			conn = ds.getConnection();
 			smt = conn.createStatement();
 			//String sql = "Select (ProgramOfStudy, History) FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';";
-			String sql = "SELECT PROGRAMOFSTUDY, Grade, HISTORY FROM STUDENTS WHERE StudentID = \'" + rp1 + "\';";
+			String sql = "SELECT PROGRAMOFSTUDY, Grade, HISTORY FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';";
 			String sql2;
 //			System.out.println(sql);
 			ResultSet rs = smt.executeQuery(sql);	
@@ -149,7 +148,7 @@ public class CourseGenerate {
 				}
 			}
 			
-			sql = "UPDATE STUDENTS SET SCHEDULE =  (\'" + courTemp + "\') WHERE STUDENTID = \'" + rp1 + "\'";
+			sql = "UPDATE STUDENTS SET SCHEDULE =  (\'" + courTemp + "\') WHERE STUDENTID = \'" + rp1.getStudentID() + "\'";
 			
 			System.out.println(sql);
 			smt.executeUpdate(sql);
@@ -160,15 +159,16 @@ public class CourseGenerate {
 					e.printStackTrace();
 				}
 		
-	try {
-		conn.close();
-		System.out.println("Database connection closed.");
-	} catch (SQLException e) {
+		try 
+		{
+			conn.close();
+			System.out.println("Database connection closed.");
+		} catch (SQLException e) {
 		// TODO Auto-generated catch block
-		e.printStackTrace();
-		System.exit( 0 );
-	}
+			e.printStackTrace();
+			System.exit( 0 );
+		}
 		
-		return courses;
+		
 	}
 }

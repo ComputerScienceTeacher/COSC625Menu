@@ -19,6 +19,7 @@ public class ClassHistory {
 	Connection conn;
 	Statement smt;
 	SQLiteDataSource ds;
+	ResultSet rs;
 
 	/**
 	 * This method calls the database to call the class history for 
@@ -27,8 +28,6 @@ public class ClassHistory {
 	 * @param rp1 - The RAPMenu passed as an object
 	 */
 	public ClassHistory(RAPMenu rp1) {
-		rp1.getF().repaint();
-		rp1.getMainLabel().setText("Success! Class History works!");
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
 		
@@ -38,15 +37,16 @@ public class ClassHistory {
 			smt = conn.createStatement();
 			String sql = "SELECT HISTORY FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';";
 		
-			ResultSet rs; 
-		
 			rs = smt.executeQuery(sql);
-			String[] classes = rs.getString("HISTORY").split(";");			
+			
+			String[] classes = rs.getString("HISTORY").split(";");
 			//System.out.println("Student " + rp1.getStudentID() + "'s Schedule:\n--------------------------------------");
 			
 			
 			rp1.getMainLabel().setText("");
-			JPanel panel = new JPanel(new GridLayout(8,1));
+			JPanel panel = rp1.getMainPanel();
+			panel.removeAll();
+			panel.setLayout(new GridLayout(8,1));
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s History:"));
 			for(int i = 0; i<classes.length; i++) {				
 				JTextArea label = new JTextArea(classes[i]);
@@ -55,7 +55,8 @@ public class ClassHistory {
 				panel.add(label, BorderLayout.SOUTH);
 				//System.out.println(classes[i]);
 			}
-			rp1.getF().add(new JScrollPane(panel));
+			rp1.getF().repaint();
+			rp1.getF().revalidate();
 		} 
 		catch (SQLException e) {
 		System.out.println("Unhandled SQL Exception");

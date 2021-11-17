@@ -23,6 +23,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     private JLabel mainLabel, label;
     private JTextField textField;
     private JButton button1;
+    private JPanel mainPanel;
     private JFrame f, vsFrame;
     private JMenuBar mb;
     private Hashtable <Object, String> options;
@@ -41,7 +42,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	textField=new JTextField(10);
         button1 = new JButton("GO!");
         mb = new JMenuBar();
-        
+        mainPanel = new JPanel();        
         
         button1.setActionCommand("GO");
         button1.addActionListener(this);
@@ -92,7 +93,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	});
     
     	
-        JMenuBar mb=new JMenuBar();
+        mb=new JMenuBar();
         label.setText(" ");
         mainLabel.setText("Please select a menu option");
         mainLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -161,6 +162,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         f.setJMenuBar(mb);  
         f.setBounds(440,300,450,450);    
         f.setVisible(true);
+        f.add(new JScrollPane(mainPanel));
     }
     
     
@@ -180,7 +182,8 @@ public class RAPMenu extends JFrame implements ActionListener{
         else if(e.getSource()== i2) { 
         	GPACalc GPA1 = new GPACalc(this);
         }
-        else if(e.getSource()== i3) { 
+        else if(e.getSource()== i3) {
+        	CourseGenerate courseGen1 = new CourseGenerate(this);
             CurrentCourses courses1 = new CurrentCourses(this);
         }
         else if(e.getSource()== i4) { 
@@ -222,6 +225,10 @@ public class RAPMenu extends JFrame implements ActionListener{
     
     public JFrame getF() {
     	return f;
+    }
+    
+    public JPanel getMainPanel() {
+    	return mainPanel;
     }
       
 	
