@@ -160,7 +160,90 @@ public class DataSource {
 			e.printStackTrace();
 		}
 	}
+	
+	public void addTeacherTable()
+	{
+		ds.setUrl("jdbc:sqlite:test.db");
+		try { Statement smt = conn.createStatement();
+		String sql = "CREATE TABLE IF NOT EXISTS TEACHERS (Name VARCHAR(255), Phone VARCHAR(255),"+ 
+					"Email VARCHAR(255), Address VARCHAR(255), Zip VARCHAR(255), ID VARCHAR(255))";
 
+		
+		smt.executeUpdate(sql);
+		System.out.println("Teacher Table Created");
+		
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+	}
+
+	/**
+     * This method imports the teachers.csv into the RAP database
+     */
+	
+	public void teacherImport() {
+		//Set relative paths for DB and CSV
+		ds.setUrl("jdbc:sqlite:test.db");
+		String csvPath = "Teachers.csv";
+		
+		//These Vars are for all the columns in the Teachers Table
+		String name;
+		String phone;
+		String address;
+		String email;
+		String zip;
+		String ID;
+		
+		//Set up Line Reader for CSV
+		try {
+			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
+			//This skips the header line
+			String line = lineReader.readLine();
+			Statement smt = conn.createStatement();	
+		
+			// This while loop goes through the whole CSV Iteratively
+			while ((line=lineReader.readLine())!=null) {
+				if(!line.contains(",,,")) {
+					String currentLine[] = line.split(",");
+					name = currentLine[0];
+					phone = currentLine[1];
+					email = currentLine[2];
+					address = currentLine[3];
+					zip = currentLine[4];
+					ID = currentLine[5];
+					
+					String sql =	"INSERT INTO TEACHERS (Name, Phone, Email, Address, Zip, ID ) VALUES"
+							+ "(\'" + name + "\'," + "\'" + phone + "\'," + "\'" + email + "\'," + "\'" + address + "\'," + "\'" + zip 
+							+ "\'," + "\'" + ID + "\')";
+					
+					smt.addBatch(sql);
+					
+				}
+			}
+						
+			smt.executeBatch();
+			
+			System.out.println("Finished Importing Teacher CSV");
+			lineReader.close();
+
+		
+		} catch (FileNotFoundException e) {
+			System.out.println("Teachers Not Found. May be a teacher shortage. Otherwise, it is an error");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+		
+
+	}
+	
+	
+	
 	/**
         * This method imports the courses.csv into the RAP database
         */
