@@ -45,7 +45,7 @@ public class ProgramOfStudy {
 			ResultSet rs = smt.executeQuery(sql);
 			
 			String prog = rs.getString("PROGRAMOFSTUDY");
-			
+			System.out.print(prog);
 			rp1.getF().repaint();
 			rp1.getMainLabel().setText("");
 			JPanel panel=rp1.getMainPanel();
