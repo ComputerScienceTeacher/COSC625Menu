@@ -25,12 +25,19 @@ public class ProgramOfStudy {
         */
 	
 	public ProgramOfStudy(RAPMenu rp1) {
+                //This block of code declares the SQLite database, iniatizes it's
+                //url, and displays specified text in the window when the associated
+                //menu option is selected
 		SQLiteDataSource ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
 		rp1.getMainLabel().setText("Success! Program of Study works!");
 		
 		try 
 		{ 
+                        //This block of code establishes a connection to the database and queries
+                        //it for the student table and the "program of study" field associated
+                        //with the given student id. The result is read into the string "prog"
+                        //and displayed in the RAP GUI window
 			conn = ds.getConnection();
 			smt = conn.createStatement();
 			String sql = "SELECT ProgramOfStudy FROM STUDENTS WHERE StudentID = \'" + rp1.getStudentID() + "\';";
