@@ -14,8 +14,8 @@ import javax.swing.*;
  * It is an extension of JFrame.
  * It implements the ActionListener for clicking the menu.
  * 
- * @author Not-so-agile-developers
- * @version 25.0
+ * @author Chad Whiteley
+ * @version 1.0
  */
 public class RAPMenu extends JFrame implements ActionListener{
     private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
@@ -23,7 +23,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     private JLabel mainLabel, label;
     private JTextField textField;
     private JButton button1;
-    private JPanel mainPanel;
     private JFrame f, vsFrame;
     private JMenuBar mb;
     private Hashtable <Object, String> options;
@@ -34,7 +33,6 @@ public class RAPMenu extends JFrame implements ActionListener{
      * This is the general constructor for a RAPMenu window.
      */
     public RAPMenu(){
-    	//the necessary variables
     	f= new JFrame("RAP (Requirements Assistance Planning)"); 
     	mainLabel =new JLabel(); 
     	options = new Hashtable<>();
@@ -42,8 +40,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     	textField=new JTextField(10);
         button1 = new JButton("GO!");
         mb = new JMenuBar();
-        mainPanel = new JPanel();        
-        
         button1.setActionCommand("GO");
         button1.addActionListener(this);
 		validateStudent();
@@ -51,11 +47,9 @@ public class RAPMenu extends JFrame implements ActionListener{
     	db1.addCourseTable();
     	db1.addStudentTable();
     	db1.addHistoryTable();
-    	db1.addTeacherTable();
     	db1.courseImport();
     	db1.studentImport();
     	db1.historyImport();
-    	db1.teacherImport();
     	setUpMenu();
     }
 
@@ -65,6 +59,8 @@ public class RAPMenu extends JFrame implements ActionListener{
     
     
     private void validateStudent() {
+        //This block of code specifies the GUI elements of the student validation window
+        //and displays a brief request to enter a student ID
     	vsFrame.setLayout(new GridLayout(4,4));
         label = new JLabel("Please enter a student ID:", JLabel.CENTER);
         label.setVerticalAlignment(JLabel.TOP);
@@ -76,7 +72,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     }
     
     
-    /*
+    /**
      * This is the method for setting up the RAP Menu.
      */
     private void setUpMenu() {
@@ -95,7 +91,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	});
     
     	
-        mb=new JMenuBar();
+        JMenuBar mb=new JMenuBar();
         label.setText(" ");
         mainLabel.setText("Please select a menu option");
         mainLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -164,7 +160,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         f.setJMenuBar(mb);  
         f.setBounds(440,300,450,450);    
         f.setVisible(true);
-        f.add(new JScrollPane(mainPanel));
     }
     
     
@@ -177,15 +172,18 @@ public class RAPMenu extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     	mainLabel.setText(options.get(e.getSource())+" clicked");
     	f.revalidate();
-
+        
+        //This block of code executes the ClassHistory, GPACalc,
+        //CurrentCourses, ProgramOfStudy,and SuggestClasses methods
+        //from MenuFunction Java files when the corresponding 
+        //menu option is selected
         if(e.getSource()== i1) {
         	ClassHistory history = new ClassHistory(this);
         }
         else if(e.getSource()== i2) { 
         	GPACalc GPA1 = new GPACalc(this);
         }
-        else if(e.getSource()== i3) {
-        	CourseGenerate courseGen1 = new CourseGenerate(this);
+        else if(e.getSource()== i3) { 
             CurrentCourses courses1 = new CurrentCourses(this);
         }
         else if(e.getSource()== i4) { 
@@ -227,10 +225,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     
     public JFrame getF() {
     	return f;
-    }
-    
-    public JPanel getMainPanel() {
-    	return mainPanel;
     }
       
 	
