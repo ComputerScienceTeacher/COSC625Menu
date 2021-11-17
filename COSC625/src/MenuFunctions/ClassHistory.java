@@ -38,12 +38,15 @@ public class ClassHistory {
 		
 			ResultSet rs; 
 		
-			rs = smt.executeQuery(sql);
+			//This block of code queries class history table in the RAP database and parses the
+                        //associated "history" field from the result into an array of strings
+                        rs = smt.executeQuery(sql);
 			String[] classes = rs.getString("HISTORY").split(";");			
 			//System.out.println("Student " + rp1.getStudentID() + "'s Schedule:\n--------------------------------------");
 			
-			
-			rp1.getMainLabel().setText("");
+			//This block of code dynamically creates a GUI window based on the "classes" string
+                        //array that displays it's contents
+                        rp1.getMainLabel().setText("");
 			JPanel panel = new JPanel(new GridLayout(8,1));
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s History:"));
 			for(int i = 0; i<classes.length; i++) {				
