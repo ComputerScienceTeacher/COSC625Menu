@@ -186,14 +186,14 @@ public class RAPMenu extends JFrame implements ActionListener{
         	GPACalc GPA1 = new GPACalc(this);
         }
         else if(e.getSource()== i3) {
-        	CourseGenerate generate1 = new CourseGenerate(this);
+//        	CourseGenerate generate1 = new CourseGenerate(this);
             CurrentCourses courses1 = new CurrentCourses(this);
         }
         else if(e.getSource()== i4) { 
         	ProgramOfStudy program1 = new ProgramOfStudy(this);
         }
         else if(e.getSource()== i5) { 
-        	SuggestClasses suggest1 = new SuggestClasses(this);
+        	CourseGenerate suggest1 = new CourseGenerate(this);
         }
         
         else if(e.getActionCommand()=="GO") { 
