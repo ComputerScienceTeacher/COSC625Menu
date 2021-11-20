@@ -7,7 +7,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -21,33 +20,7 @@ import java.util.*;
  * This Class allows a teacher to assign a student to a specific Program of Study 
  * 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * Author Jacob Facemire, 11/19/2021 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+ * Author Jacob Facemire, Chad Whiteley 11/19/2021 
  * 
  */
 public class AssignToPOS {

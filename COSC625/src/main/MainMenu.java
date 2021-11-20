@@ -8,16 +8,16 @@ public class MainMenu {
 
 	public static void main(String[] args) {
 		DataSource d = new DataSource();
-//		d.addStudentTable();
-//		d.studentImport();
+		d.addStudentTable();
+		d.studentImport();
 //		d.addCourseTable();
 //		d.courseImport();
-//		d.addProgramTable();
-//		d.ProgramImport();
+		d.addProgramTable();
+		d.ProgramImport();
 //		CourseGenerate.CourseGenerate("25690");
 //		CurrentCourses.CurrentCourses("25690");
-		
-		AssignToPOS.AssignToPOS("25690");		
+		ProgramOfStudyChecklist.ProgramOfStudyCheck("22065");
+//		AssignToPOS.AssignToPOS("25690");		
 //		new RAPMenu();
 		}
 
