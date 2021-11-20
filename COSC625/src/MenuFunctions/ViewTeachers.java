@@ -2,6 +2,21 @@ package MenuFunctions;
 
 import project.RAPMenu;
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.swing.BorderFactory;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+//import project.RAPMenu;
+import org.sqlite.SQLiteDataSource;
+
+
 public class ViewTeachers {
 
 	public ViewTeachers(RAPMenu rp1) {
