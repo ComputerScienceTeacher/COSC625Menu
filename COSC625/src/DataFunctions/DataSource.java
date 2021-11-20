@@ -178,6 +178,8 @@ public class DataSource {
 		}
 	}
 
+
+	
 	/**
      * This method imports the teachers.csv into the RAP database
      */
@@ -243,8 +245,76 @@ public class DataSource {
 	}
 	
 	
+	/*
+	 * This Method builds the SQL table used to store info regarding programs of study and their requirements list, The following imports a csv into the table
+	 * 
+	 * @author Jacob Facemire
+	 */
+	public void addProgramTable()
+	{
+		ds.setUrl("jdbc:sqlite:test.db");
+		try { Statement smt = conn.createStatement();
+		smt.executeUpdate("Drop Table Program");
+		String sql = "CREATE TABLE IF NOT EXISTS PROGRAM (Name VARCHAR(255), Requirements VARCHAR(255))";
+		
+		smt.executeUpdate(sql);
+		System.out.println("Program Table Created");
+		
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+	}
 	
-	/**
+	public void ProgramImport() {
+		//Set relative paths for DB and CSV
+		ds.setUrl("jdbc:sqlite:test.db");
+		String csvPath = "ProgramOfStudy.csv";
+		
+		//These Vars are for all the columns in the Core Courses Table
+		String name;
+		String req;
+		
+		//Set up Line Reader for CSV
+		try {
+			BufferedReader lineReader = new BufferedReader(new FileReader(csvPath));
+			//This skips the header line
+			String line = lineReader.readLine();
+			Statement smt = conn.createStatement();	
+			
+			// This while loop goes through the whole CSV Iteratively
+			while ((line=lineReader.readLine())!=null) {
+				if(!line.contains(",,,")) {
+					String currentLine[] = line.split(",");
+					name = currentLine[0];
+					req = currentLine[1];
+					
+					String sql =	"INSERT INTO Program (Name, Requirements) VALUES"
+							+ "(\'" + name + "\'," + "\'" + req + "\')";		
+					smt.addBatch(sql);	
+				}
+			}
+						
+			smt.executeBatch();
+			
+			System.out.println("Finished Importing Program CSV");
+			lineReader.close();
+
+		
+		} catch (FileNotFoundException e) {
+			System.out.println("Program List Not Found. Error");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("Unhandled SQL Exception");
+			e.printStackTrace();
+		}
+		
+
+	}
+		/**
         * This method imports the courses.csv into the RAP database
         */
 	

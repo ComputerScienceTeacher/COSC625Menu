@@ -25,7 +25,7 @@ import project.RAPMenu;
  * 
  * 
  * 
- * @author Jacob Facemire, 11/10/2021, Ver 0.0.1
+ * @author Jacob Facemire, 11/12/2021, Ver 1.0.0
  *
  */
 public class CourseGenerate {

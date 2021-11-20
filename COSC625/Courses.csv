@@ -86,10 +86,9 @@ Principles of Architecture,13004210,1,9,0,none,none,none,Architectural Design,El
 Architectural Design I,13004600,1,10,0,Algebra I;English I,none,none,Architectural Design,Electrical,none,none
 Architectural Design II,13004700,2,11,0,Architectural Design I,none,none,Architectural Design,none,none,none
 Practicum in Architectural Design,13004800,2,12,0,Architectural Design II,none,none,Architectural Design,none,none,none
-Electrical Technology I,13005600,1,11,0,none,none,none,Electrical,none,none,none
+Electrical Technology II,13005600,1,11,0,none,none,none,Electrical,none,none,none
 Electrical Technology II,13005700,2,11,0,Electrical Technology I,none,none,Electrical,none,none,none
-Practicum in Construction Technology – 1st Time Taken,13005250,2,12,0,Electrical Technology II,none,none,Electrical,Welding,none,none
-Practicum in Construction Technology – 2nd Time Taken,13005260,2,12,0,none,none,none,Electrical,Welding,none,none
+Practicum in Construction Technology,13005250,2,12,0,Electrical Technology II,none,none,Electrical,Welding,none,none
 Introduction to Welding,13032250,1,9,0,none,none,none,Welding,none,none,none
 Welding I,13032300,2,10,0,Introduction to Welding,none,none,Welding,none,none,none
 Welding II,13032400,2,11,0,Welding I,none,none,Welding,none,none,none
