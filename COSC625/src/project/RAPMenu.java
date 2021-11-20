@@ -49,10 +49,12 @@ public class RAPMenu extends JFrame implements ActionListener{
     	db1.addCourseTable();
     	db1.addStudentTable();
     	db1.addHistoryTable();
-    	db1.courseImport();
+	db1.addTeacherTable();
+        db1.courseImport();
     	db1.studentImport();
     	db1.historyImport();
-    	setUpMenu();
+	db1.teacherImport();
+        setUpMenu();
     }
 
      /**
@@ -195,7 +197,9 @@ public class RAPMenu extends JFrame implements ActionListener{
         else if(e.getSource()== i5) { 
         	CourseGenerate suggest1 = new CourseGenerate(this);
         }
-        
+        else if(e.getSource()== i6) {
+        	ViewTeachers teacherlist = new ViewTeachers(this);
+	}	
         else if(e.getActionCommand()=="GO") { 
           studentID = textField.getText().toString();
         	System.out.println("GO pressed");
