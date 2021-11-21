@@ -39,21 +39,23 @@ public class ViewTeachers {
 		try 
 		{   conn = ds.getConnection();
 			smt = conn.createStatement();
-			String sql = "SELECT NAME FROM TEACHERS ORDER BY NAME;";
-			rs = smt.executeQuery(sql);					
-			rp1.getMainLabel().setText("");
+			String sql = "SELECT DISTINCT NAME FROM TEACHERS ORDER BY NAME";
+		
+			rs = smt.executeQuery(sql);
+			
 			JPanel panel = rp1.getMainPanel();
 			panel.removeAll();
-			panel.setLayout(new GridLayout(75,2));
-			panel.setBorder(BorderFactory.createTitledBorder("Current Teachers:"));
-			while(rs.next()) {
-				System.out.println(rs.getString(1));
+			panel.setLayout(new GridLayout(50,1));
+			panel.setBorder(BorderFactory.createTitledBorder("List of all Teachers"));
+
+			while(rs.next()) {		
 				JTextArea label = new JTextArea(rs.getString(1));
 				label.setLineWrap( true );
 				label.setWrapStyleWord(true);
 				panel.add(label, BorderLayout.SOUTH);
-				//System.out.println(classes[i]);
+				rs.next();
 			}
+
 			rp1.getF().repaint();
 			rp1.getF().revalidate();
 			conn.close();
