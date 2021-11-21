@@ -29,7 +29,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     private JPanel mainPanel;
     private JFrame f, vsFrame;
     private JMenuBar mb;
-    private Hashtable <Object, String> options;
     private DataSource db1;
     private String studentID;
     
@@ -41,7 +40,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     	mainLabel =new JLabel();
     	label = new JLabel();
     	mainPanel = new JPanel();
-    	options = new Hashtable<>();
     	vsFrame = new JFrame();
     	textField=new JTextField(10);
         button1 = new JButton("GO!");
@@ -138,21 +136,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         i11.addActionListener(this); i12.addActionListener(this);
         i3.addActionListener(this);
         
-        //Hashtable created to report menu option clicked
-    	options.put(i1, "Class History");
-    	options.put(i2, "GPA Calculation");
-    	options.put(i3, "Current Courses");
-    	options.put(i4, "View Program of Study Checklist");
-    	options.put(i5, "View Suggested Classes");
-    	options.put(i6, "View Teachers");
-    	options.put(i7, "View Master Schedule");
-    	options.put(i8, "View Sections Without Allocated Teachers");
-    	options.put(i9, "View Courses with an Allocated Teacher");
-    	options.put(i10, "View Sections By Total Enrollment");
-    	options.put(i11, "View Registered Students");
-    	options.put(i12, "Assign Students to Program of Study");
-    	options.put(i13, "Assign Student to Course Section");
-    	options.put(button1, "Please select option from the menu");
         
     	//Frame made visible on the screen
     	f.add(mainLabel);
@@ -170,7 +153,7 @@ public class RAPMenu extends JFrame implements ActionListener{
      * @param e - the event that initiates the actionPerformed
      */
     public void actionPerformed(ActionEvent e) {
-    	mainLabel.setText(options.get(e.getSource())+" clicked");
+    	//this reset the JFrame
     	f.revalidate();
         
         //This block of code executes the ClassHistory, GPACalc,
@@ -193,17 +176,33 @@ public class RAPMenu extends JFrame implements ActionListener{
         	CourseGenerate suggest1 = new CourseGenerate(this);
         }
         
-        else if(e.getSource()==i6) {
+        else if(e.getSource()== i6) {
         	ViewTeachers vt1 = new ViewTeachers(this);
         }
         
+        else if(e.getSource()== i7) {
+        	ViewMasterSchedule vms1 = new ViewMasterSchedule(this);
+        }
+        else if(e.getSource()== i8) { 
+        	NoAllocatedTeachers nat1 = new NoAllocatedTeachers(this);
+        }
+        else if(e.getSource()== i9) {
+            WithAllocatedTeachers wat1 = new WithAllocatedTeachers(this);
+        }
+        else if(e.getSource()== i10) { 
+        	TotalEnrollment te1 = new TotalEnrollment(this);
+        }
+        else if(e.getSource()== i11) { 
+        	ViewRegisteredStudents vrs1 = new ViewRegisteredStudents(this);
+        } 
+             
         else if(e.getSource()== i12) { 
         	AssignToPOS atp1 = new AssignToPOS(this);
         }
         
-//        else if(e.getSource()== i13) { 
-//        	AssignToCourse atc1 = new AssignToCourse(this);
-//        }
+        else if(e.getSource()== i13) { 
+        	AssignToCourse atc1 = new AssignToCourse(this);
+       }
         
         else if(e.getActionCommand()=="GO") { 
         	studentID = textField.getText().toString();
@@ -218,6 +217,8 @@ public class RAPMenu extends JFrame implements ActionListener{
     
     /**
      * This method returns "mainPanel"
+     * 
+     * @return mainPanel - the main panel for RAPMenu
      */
     public JPanel getMainPanel() {
     	return mainPanel;
@@ -225,6 +226,8 @@ public class RAPMenu extends JFrame implements ActionListener{
 
      /**
      * This method returns "mainLabel"
+     * 
+     * @return mainLabel - the main label for RAPMenu
      */
     public JLabel getMainLabel() {
     	return mainLabel;
@@ -232,13 +235,17 @@ public class RAPMenu extends JFrame implements ActionListener{
 
      /**
      * This method returns "student ID"
+     * 
+     * @return studentID - the String variable for studentID
      */
     public String getStudentID() {
     	return studentID;
     }
 
      /**
-     * This method returns "f"
+     * This method returns the JFrame "f"
+     * 
+     * @return f - the JFrame of the RAPMenu
      */
     public JFrame getF() {
     	return f;

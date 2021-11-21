@@ -2,9 +2,10 @@ package MenuFunctions;
 
 import project.RAPMenu;
 
-public class ViewRegisteredStrudents {
+public class ViewRegisteredStudents {
 
-	public void ViewRegisteredStudents(RAPMenu rp1) {
+	public ViewRegisteredStudents(RAPMenu rp1) {
+		rp1.getMainPanel().removeAll();
 		rp1.getMainLabel().setText("Success! View Registered Students works!");
 	}
 
