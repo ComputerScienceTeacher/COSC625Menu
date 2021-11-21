@@ -19,17 +19,16 @@ public class ProgramOfStudy {
 	Connection conn;
 	Statement smt; 
 
-        /**
-        * This method implements the program of study menu option
-        */
-	
+    /**
+     * This method implements the program of study menu option
+     */
 	public ProgramOfStudy(RAPMenu rp1) {
                 //This block of code declares the SQLite database, iniatizes it's
                 //url, and displays specified text in the window when the associated
                 //menu option is selected
 		SQLiteDataSource ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
-		rp1.getMainLabel().setText("Success! Program of Study works!");
+		rp1.getMainLabel().setText("");
 		
 		try 
 		{ 
@@ -46,7 +45,6 @@ public class ProgramOfStudy {
 			String prog = rs.getString("PROGRAMOFSTUDY");
 			System.out.print(prog);
 			rp1.getF().repaint();
-			rp1.getMainLabel().setText("");
 			JPanel panel=rp1.getMainPanel();
 			panel.removeAll();
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s Program of Study:"));
