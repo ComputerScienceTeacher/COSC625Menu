@@ -125,15 +125,16 @@ public class AddTables {
 	public void addHistoryTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
+		
 		try { Statement smt = conn.createStatement();
-		String sql = "CREATE TABLE IF NOT EXISTS HISTORY (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
-					"MiddleName VARCHAR(255), StudentID VARCHAR(255), GRADE INTEGER, PROGRAMOFSTUDY VARCHAR(255), " +
-					"HIST VARCHAR(1255))";
-	
+			String sql = "CREATE TABLE IF NOT EXISTS HISTORY (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
+						"MiddleName VARCHAR(255), StudentID VARCHAR(255), GRADE INTEGER, PROGRAMOFSTUDY VARCHAR(255), " +
+						"HIST VARCHAR(1255), GPA VARCHAR(255))";
 		
-		smt.executeUpdate(sql);
-		System.out.println("History Table Created");
-		
+			
+			smt.executeUpdate(sql);
+			System.out.println("History Table Created");
+			
 		} catch (SQLException e) {
 			System.out.println("Unhandled SQL Exception");
 			e.printStackTrace();

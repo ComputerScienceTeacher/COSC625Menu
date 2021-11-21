@@ -2,8 +2,6 @@ package project;
 
 import java.awt.GridLayout;
 import java.awt.event.*;
-import java.util.Hashtable;
-import DataFunctions.DataSource;
 import MenuFunctions.*;
 import javax.swing.*;
 
@@ -29,7 +27,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     private JPanel mainPanel;
     private JFrame f, vsFrame;
     private JMenuBar mb;
-    private DataSource db1;
     private String studentID;
     
     /**
@@ -47,7 +44,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         button1.setActionCommand("GO");
         button1.addActionListener(this);
 		validateStudent();
-    	db1 = new DataSource();
     	setUpMenu();
     }
 
@@ -84,7 +80,6 @@ public class RAPMenu extends JFrame implements ActionListener{
     	    public void windowClosing(WindowEvent e)
     	    {
     	        super.windowClosing(e);
-    	        db1.closeConnection();
     	    }
     	});
     
@@ -161,48 +156,48 @@ public class RAPMenu extends JFrame implements ActionListener{
         //from MenuFunction Java files when the corresponding 
         //menu option is selected
         if(e.getSource()== i1) {
-        	ClassHistory history = new ClassHistory(this);
+        	new ClassHistory(this);
         }
         else if(e.getSource()== i2) { 
-        	GPACalc GPA1 = new GPACalc(this);
+        	new GPACalc(this);
         }
         else if(e.getSource()== i3) {
-            CurrentCourses courses1 = new CurrentCourses(this);
+            new CurrentCourses(this);
         }
         else if(e.getSource()== i4) { 
-        	ProgramOfStudy program1 = new ProgramOfStudy(this);
+        	new ProgramOfStudy(this);
         }
         else if(e.getSource()== i5) { 
-        	CourseGenerate suggest1 = new CourseGenerate(this);
+        	new CourseGenerate(this);
         }
         
         else if(e.getSource()== i6) {
-        	ViewTeachers vt1 = new ViewTeachers(this);
+        	new ViewTeachers(this);
         }
         
         else if(e.getSource()== i7) {
-        	ViewMasterSchedule vms1 = new ViewMasterSchedule(this);
+        	new ViewMasterSchedule(this);
         }
         else if(e.getSource()== i8) { 
-        	NoAllocatedTeachers nat1 = new NoAllocatedTeachers(this);
+        	new NoAllocatedTeachers(this);
         }
         else if(e.getSource()== i9) {
-            WithAllocatedTeachers wat1 = new WithAllocatedTeachers(this);
+            new WithAllocatedTeachers(this);
         }
         else if(e.getSource()== i10) { 
-        	TotalEnrollment te1 = new TotalEnrollment(this);
+        	new TotalEnrollment(this);
         }
         else if(e.getSource()== i11) { 
-        	ViewRegisteredStudents vrs1 = new ViewRegisteredStudents(this);
+        	new ViewRegisteredStudents(this);
         } 
              
         else if(e.getSource()== i12) { 
-        	AssignToPOS atp1 = new AssignToPOS(this);
+        	new AssignToPOS(this);
         }
         
         else if(e.getSource()== i13) { 
-        	AssignToCourse atc1 = new AssignToCourse(this);
-       }
+        	new AssignToCourse(this);
+        }
         
         else if(e.getActionCommand()=="GO") { 
         	studentID = textField.getText().toString();

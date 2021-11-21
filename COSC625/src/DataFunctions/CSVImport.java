@@ -284,6 +284,7 @@ public class CSVImport {
 		int grade;
 		String programOfStudy;
 		String history;
+		String gpa;
 		
 		//Set up Line Reader for CSV
 		try {
@@ -296,17 +297,18 @@ public class CSVImport {
 			while ((line=lineReader.readLine())!=null) {
 				if(!line.contains(",,,")) {
 					String currentLine[] = line.split(",");
-					firstName = currentLine[0];
-					lastName = currentLine[1];
+					lastName = currentLine[0];
+					firstName = currentLine[1];
 					middleName = currentLine[2];
 					studentID = currentLine[3];
 					grade = Integer.valueOf(currentLine[4]);
 					programOfStudy = currentLine[5];
 					history = currentLine[6];
+					gpa = currentLine[7];
 					
-					String sql =	"INSERT INTO HISTORY (FirstName, LastName, MiddleName, StudentID, Grade, programOfStudy, hist) VALUES"
+					String sql =	"INSERT INTO HISTORY (FirstName, LastName, MiddleName, StudentID, Grade, programOfStudy, hist, GPA) VALUES"
 							+ "(\'" + firstName + "\'," + "\'" + lastName + "\'," + "\'" + middleName + "\'," + "\'" + studentID + "\'," + 
-							"\'" + grade + "\'," + "\'" + programOfStudy + "\'," + "\'" + history + "\')";
+							"\'" + grade + "\'," + "\'" + programOfStudy + "\'," + "\'" + history + "\'," + "\'" + gpa  + "\')";
 					
 					smt.addBatch(sql);
 					
