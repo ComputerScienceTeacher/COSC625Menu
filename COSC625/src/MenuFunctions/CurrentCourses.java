@@ -9,9 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.BorderFactory;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 import org.sqlite.SQLiteDataSource;
@@ -52,6 +50,7 @@ public class CurrentCourses {
 			}
 			rp1.getF().repaint();
 			rp1.getF().revalidate();
+			conn.close();
 			
 			
 		} 
@@ -60,16 +59,6 @@ public class CurrentCourses {
 			e.printStackTrace();
 		}
 			
-		try {
-			conn.close();
-			System.out.println("Database connection closed.");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit( 0 );
-		}
-	
-				
 		
 	}
 

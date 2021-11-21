@@ -1,9 +1,5 @@
 package MenuFunctions;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -152,22 +148,15 @@ public class CourseGenerate {
 			
 			System.out.println(sql);
 			smt.executeUpdate(sql);
-			
-			} catch (SQLException e) 
-				{
-					System.out.println("Unhandled SQL Exception");
-					e.printStackTrace();
-				}
-		
-		try 
-		{
 			conn.close();
-			System.out.println("Database connection closed.");
-		} catch (SQLException e) {
-		// TODO Auto-generated catch block
+			
+		} 
+		catch (SQLException e) 
+		{
+			System.out.println("Unhandled SQL Exception");
 			e.printStackTrace();
-			System.exit( 0 );
 		}
+
 		
 		
 	}

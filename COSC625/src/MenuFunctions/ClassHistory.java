@@ -9,7 +9,6 @@ import java.sql.Statement;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import project.RAPMenu;
 import org.sqlite.SQLiteDataSource;
@@ -57,21 +56,13 @@ public class ClassHistory {
 			}
 			rp1.getF().repaint();
 			rp1.getF().revalidate();
+			conn.close();
 		} 
 		catch (SQLException e) {
 		System.out.println("Unhandled SQL Exception");
 		e.printStackTrace();
 		}
-		
-		try {
-			conn.close();
-			System.out.println("Database connection closed.");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit( 0 );
-		}
-			
+	
 
 	}
 	

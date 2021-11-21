@@ -1,7 +1,6 @@
 package MenuFunctions;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -54,6 +53,7 @@ public class ProgramOfStudy {
 			JLabel label=new JLabel(prog);
 			panel.add(label, BorderLayout.SOUTH);
 			//return prog;
+			conn.close();
 			  
 		} 
 		catch (SQLException e) {
@@ -61,14 +61,6 @@ public class ProgramOfStudy {
 			e.printStackTrace();
 		}
 			
-		try {
-			conn.close();
-			System.out.println("Database connection closed.");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.exit( 0 );
-		}
 	}
 
 }

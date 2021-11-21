@@ -5,7 +5,6 @@ import java.awt.event.*;
 import java.util.Hashtable;
 import DataFunctions.DataSource;
 import MenuFunctions.*;
-
 import javax.swing.*;
 
 
@@ -18,7 +17,11 @@ import javax.swing.*;
  * @version 1.0
  */
 public class RAPMenu extends JFrame implements ActionListener{
-    private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
+    /**
+	 * The serial version ID for RAPMenu
+	 */
+	private static final long serialVersionUID = 1L;
+	private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
     private JMenuItem i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13;
     private JLabel mainLabel, label;
     private JTextField textField;
@@ -36,6 +39,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     public RAPMenu(){
     	f= new JFrame("RAP (Requirements Assistance Planning)"); 
     	mainLabel =new JLabel();
+    	label = new JLabel();
     	mainPanel = new JPanel();
     	options = new Hashtable<>();
     	vsFrame = new JFrame();
@@ -46,12 +50,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         button1.addActionListener(this);
 		validateStudent();
     	db1 = new DataSource();
-    	db1.addCourseTable();
-    	db1.addStudentTable();
-    	db1.addHistoryTable();
-    	db1.courseImport();
-    	db1.studentImport();
-    	db1.historyImport();
     	setUpMenu();
     }
 
@@ -64,9 +62,9 @@ public class RAPMenu extends JFrame implements ActionListener{
         //This block of code specifies the GUI elements of the student validation window
         //and displays a brief request to enter a student ID
     	vsFrame.setLayout(new GridLayout(4,4));
-        label = new JLabel("Please enter a student ID:", JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.TOP);
-        vsFrame.add(label);
+        JLabel vsLabel = new JLabel("Please enter a student ID:", JLabel.CENTER);
+        vsLabel.setVerticalAlignment(JLabel.TOP);
+        vsFrame.add(vsLabel);
         vsFrame.add(textField);
         vsFrame.add(button1);
         vsFrame.setBounds(200,250,400,400);    
@@ -186,7 +184,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         	GPACalc GPA1 = new GPACalc(this);
         }
         else if(e.getSource()== i3) {
-//        	CourseGenerate generate1 = new CourseGenerate(this);
             CurrentCourses courses1 = new CurrentCourses(this);
         }
         else if(e.getSource()== i4) { 
@@ -196,11 +193,23 @@ public class RAPMenu extends JFrame implements ActionListener{
         	CourseGenerate suggest1 = new CourseGenerate(this);
         }
         
+        else if(e.getSource()==i6) {
+        	ViewTeachers vt1 = new ViewTeachers(this);
+        }
+        
+        else if(e.getSource()== i12) { 
+        	AssignToPOS atp1 = new AssignToPOS(this);
+        }
+        
+//        else if(e.getSource()== i13) { 
+//        	AssignToCourse atc1 = new AssignToCourse(this);
+//        }
+        
         else if(e.getActionCommand()=="GO") { 
-          studentID = textField.getText().toString();
-        	System.out.println("GO pressed");
-        	System.out.println("StudentID = " + studentID);
-        	vsFrame.dispose();
+        	studentID = textField.getText().toString();
+          	System.out.println("GO pressed");
+          	System.out.println("StudentID = " + studentID);
+          	vsFrame.dispose();
 
         }
 
