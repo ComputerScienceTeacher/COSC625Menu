@@ -38,12 +38,19 @@ public class DataSource {
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
 	        conn = ds.getConnection();
+	        newQuery("DELETE FROM STUDENTS");
+		    newQuery("DELETE FROM PROGRAM");
+		    newQuery("DELETE FROM TEACHERS");
+		    newQuery("DELETE FROM HISTORY");
+		    newQuery("DELETE FROM COURSES");
+		    conn.close();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
 	        System.exit(0);
+
 	    }
 	    System.out.println( "Opened database successfully" );
-	    System.out.println( "Created database successfully" );
+	    System.out.println( "Created database successfully" ); 
 	}
 
     /**
@@ -64,10 +71,10 @@ public class DataSource {
 	 * This function executes a query into the RAP database
 	 */
 	public void newQuery(String query) {
-		try ( Statement stmt = conn.createStatement(); ) {
+		try ( Statement stmt = conn.createStatement(); ) 
+		{
 	            int rv = stmt.executeUpdate( query );
 	            System.out.println( "executeUpdate() returned " + rv );
-	            conn.close();
 	        
 		} catch ( SQLException e ) {
 	            e.printStackTrace();
@@ -83,7 +90,7 @@ public class DataSource {
 			 * This block of code makes a new table if it has yet to be created
 			 * and imports student IDs and Grades through Student Table
 			 * 
-			 * All of This is outdated and shouyld be removed once Schedule Assignment is possible
+			 * All of This is outdated and should be removed once Schedule Assignment is possible
 			 * 
 			 * 
 			 * 
