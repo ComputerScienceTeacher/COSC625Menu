@@ -15,6 +15,10 @@ import org.sqlite.SQLiteDataSource;
 
 import project.RAPMenu;
 
+/**
+ * This is the view registered students class
+ * This allows a user to view all students in the database
+ */
 public class ViewRegisteredStudents {
 	Connection conn;
 	Statement smt;
@@ -22,7 +26,7 @@ public class ViewRegisteredStudents {
 	ResultSet rs;
 
 	/**
-	 * This method is the view teachers constructor.
+	 * This method is the view registered students constructor.
 	 * 
 	 * @param rp1 - the menu that is used for the program
 	 */
