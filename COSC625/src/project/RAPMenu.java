@@ -169,6 +169,9 @@ public class RAPMenu extends JFrame implements ActionListener{
         }
         else if(e.getSource()== i5) { 
         	new CourseGenerate(this);
+                //Suggestion that this line be redone without a value passed in given the
+                //the latest change to CourseGenerate
+
         }
         
         else if(e.getSource()== i6) {
