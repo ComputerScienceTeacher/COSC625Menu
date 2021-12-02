@@ -13,17 +13,20 @@ public class AddTables {
 	
 	
 	public AddTables() {
-		ds = null;
+		ds = null;//ds initialized to null
 				
 	    try {
+                //This block of code declares the SQLite database, iniatizes it's
+                //url, establishes a connection to the database and adds the course,
+                //course history, program of study, and student tables
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
-			conn = ds.getConnection();
-		    addCourseTable();
-		    addHistoryTable();
-		    addProgramTable();
-		    addStudentTable();
-		    conn.close();
+	        conn = ds.getConnection();
+		addCourseTable();
+		addHistoryTable();
+		addProgramTable();
+		addStudentTable();
+		conn.close();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
 	        System.exit(0);
@@ -37,7 +40,8 @@ public class AddTables {
 	public void addCourseTable()
 	{
 	       
-		try { Statement smt = conn.createStatement();
+		try { 
+                Statement smt = conn.createStatement();
 		
 		smt.executeUpdate("DROP TABLE COURSE");
 		
@@ -61,7 +65,8 @@ public class AddTables {
 	public void addTeacherTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
-		try { Statement smt = conn.createStatement();
+		try { 
+                Statement smt = conn.createStatement();
 		String sql = "CREATE TABLE IF NOT EXISTS TEACHERS (Name VARCHAR(255), Phone VARCHAR(255),"+ 
 					"Email VARCHAR(255), Address VARCHAR(255), Zip VARCHAR(255), ID VARCHAR(255))";
 	
@@ -81,7 +86,8 @@ public class AddTables {
 	public void addStudentTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
-		try { Statement smt = conn.createStatement();
+		try { 
+                Statement smt = conn.createStatement();
 		String sql = "CREATE TABLE IF NOT EXISTS STUDENTS (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
 					"MiddleName VARCHAR(255), StudentID VARCHAR(255), INTERNALID VARCHAR(255), GRADE INTEGER," +
 					"PHONENUM VARCHAR(255), GENDER VARCHAR(255), GRADYEAR INTEGER, ADDRESS VARCHAR(255), SECONDPHONE VARCHAR(255)," +
@@ -106,7 +112,8 @@ public class AddTables {
 	public void addProgramTable()
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
-		try { Statement smt = conn.createStatement();
+		try { 
+                Statement smt = conn.createStatement();
 		smt.executeUpdate("Drop Table Program");
 		String sql = "CREATE TABLE IF NOT EXISTS PROGRAM (Name VARCHAR(255), Requirements VARCHAR(255))";
 		
@@ -126,7 +133,8 @@ public class AddTables {
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
 		
-		try { Statement smt = conn.createStatement();
+		try { 
+                        Statement smt = conn.createStatement();
 			String sql = "CREATE TABLE IF NOT EXISTS HISTORY (LastName VARCHAR(255), FirstName VARCHAR(255),"+ 
 						"MiddleName VARCHAR(255), StudentID VARCHAR(255), GRADE INTEGER, PROGRAMOFSTUDY VARCHAR(255), " +
 						"HIST VARCHAR(1255), GPA VARCHAR(255))";
