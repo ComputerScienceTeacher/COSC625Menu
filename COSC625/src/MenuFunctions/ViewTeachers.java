@@ -27,6 +27,8 @@ public class ViewTeachers {
 	Statement smt;
 	SQLiteDataSource ds;
 	ResultSet rs;
+	//int count = 0; //For testing, only temporary
+
 
 	/**
 	 * This method is the view teachers constructor.
@@ -54,7 +56,15 @@ public class ViewTeachers {
 				label.setWrapStyleWord(true);
 				panel.add(label, BorderLayout.SOUTH);
 				rs.next();
+				//count = count + 1; //For testing, only temporary
+
 			}
+		        
+		        //This block of code is for testing and only temporary
+		        //JTextArea label1 = new JTextArea(Integer.toString(count));
+			//label1.setLineWrap( true );
+			//label1.setWrapStyleWord(true);
+			//panel.add(label1, BorderLayout.SOUTH);
 
 			rp1.getF().repaint();
 			rp1.getF().revalidate();
