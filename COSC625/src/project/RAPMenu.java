@@ -116,7 +116,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         i11 = new JMenuItem("View Registered Students");
         i12 = new JMenuItem("To Program of Study");
         i13 = new JMenuItem("To Course");
-	//i14 = new JMenuItem("By Courses");    
+	//i14 = new JMenuItem("By Courses");  //Added for testing ByCourse.java   
         menu2.add(i6); menu2.add(i7); menu2.add(i11); 
         submenu2.add(i8); submenu2.add(i9); submenu2.add(i10);
         submenu3.add(i12); submenu3.add(i13);
