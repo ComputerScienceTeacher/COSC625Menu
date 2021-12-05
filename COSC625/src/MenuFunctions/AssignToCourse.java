@@ -34,8 +34,7 @@ public class AssignToCourse implements ActionListener {
 
 
 	/**
-	 * This method calls the database to call the class history for
-	 * the student.
+
 	 *
 	 * @param rp1 - The RAPMenu passed as an object
 	 */
@@ -46,7 +45,7 @@ public class AssignToCourse implements ActionListener {
 		in = null;
 
 		/*
-		 * This First Section pulls a list of all Programs of study
+	
 		 */
 		try
 		{
