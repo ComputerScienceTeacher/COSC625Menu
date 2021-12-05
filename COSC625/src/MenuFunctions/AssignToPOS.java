@@ -55,10 +55,15 @@ public class AssignToPOS implements ActionListener {
 			String sql = "SELECT Name FROM Program";
 		
 			rs = smt.executeQuery(sql);
+
 				
 			String[] prog = new String[10];
 			int count = 0;
-						
+			
+
+			//This block of code iterates through the result set and initializes
+                        //the string array "prog" with the contents of the name column from the
+                        //program of study table
 			while(rs.next()) 
 			{
 				prog[count] = rs.getString(1);
