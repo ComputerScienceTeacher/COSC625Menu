@@ -59,14 +59,19 @@ public class ByCourse {
 			panel.removeAll();
 			panel.setLayout(new GridLayout(1000,1));
 			panel.setBorder(BorderFactory.createTitledBorder("# sections per course"));
-
-			while(rs.next()) {		
+		 
+                        //This block of code iterates through the result set and initializes
+                        //the JTextArea instantiation "label" with a calculation of the # of
+		        //sections per course, wraps label with the setLineWrap and setWrapStyleWord 
+		        //functions, instantiates JPanel object panel with parameters that 
+		        //includes "label" each iteration
+                        while(rs.next()) {		
 				JTextArea label = new JTextArea("# of sections" + "   " + Integer.toString(Math.round(Integer.parseInt(rs.getString(5))/10)) + "    " + rs.getString(2));
-                label.setLineWrap( true );
+                                label.setLineWrap( true );
 				label.setWrapStyleWord(true);
 				panel.add(label, BorderLayout.SOUTH);
 				//rs.next();
-				count = count + 1;
+				//count = count + 1;
 			}
 			
 			//Integer.parseInt("200");
