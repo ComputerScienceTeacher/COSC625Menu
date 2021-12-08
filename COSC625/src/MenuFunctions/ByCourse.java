@@ -13,6 +13,15 @@ import javax.swing.JTextArea;
 //import project.RAPMenu;
 import org.sqlite.SQLiteDataSource;
 
+/**
+ * 
+ * This class allows a counselor to view the teachers
+ * 
+ * @author Nnabugwu Onyirimba
+ *
+ */
+
+
 
 public class ByCourse {
 	
