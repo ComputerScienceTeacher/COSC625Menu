@@ -45,17 +45,17 @@ public class AssignToCourse implements ActionListener {
 		in = null;
 
 		/*
-	
+
 		 */
 		try
 		{
 			conn = ds.getConnection();
 			smt = conn.createStatement();
 			String sql1= "Select Name, CoursePreRequisite from Courses";
-			String sql2 = 'Select History from Students'
+			String sql2 = "Select History from Student";
 
-			rs = smt.executeQuery(sql);
-			String course_history
+			rs = smt.executeQuery(sql1);
+			String course_history;
 			String[] course_list = new String[115];
 			int count = 0;
 
@@ -69,7 +69,7 @@ public class AssignToCourse implements ActionListener {
 
 			label = rp1.getMainLabel();
 			label.setText("");
-			JComboBox<String> cmbMessageList = new JComboBox<String>(prog);
+			JComboBox<String> cmbMessageList = new JComboBox<String>();
 			JFrame menu = rp1.getF();
 			JPanel panel = rp1.getMainPanel();
 			panel.removeAll();
@@ -100,11 +100,11 @@ public class AssignToCourse implements ActionListener {
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
 		String sql3 = "UPDATE STUDENTS CurrentCourses = \'" + in + "\' WHERE STUDENTID = \'" + rp1.getStudentID() + "\'";
-		System.out.println(sql2);
+		System.out.println(sql3);
 		try {
 			conn = ds.getConnection();
 			smt = conn.createStatement();
-			smt.executeUpdate(sql2);
+			smt.executeUpdate(sql3);
 			label.setText("Student " + rp1.getStudentID() + " was updated to " + in + ".");
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
