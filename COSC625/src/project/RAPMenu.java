@@ -21,7 +21,7 @@ public class RAPMenu extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	private JMenu menu1, menu2, submenu1, submenu2, submenu3;  
     private JMenuItem i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13;
-    //private JMenuItem i14;  //Added for testing ByCourses.java	
+    private JMenuItem i14;  //Added for testing ByCourses.java	
     private JLabel mainLabel, label;
     private JTextField textField;
     private JButton button1;
@@ -116,11 +116,11 @@ public class RAPMenu extends JFrame implements ActionListener{
         i11 = new JMenuItem("View Registered Students");
         i12 = new JMenuItem("To Program of Study");
         i13 = new JMenuItem("To Course");
-	//i14 = new JMenuItem("By Courses");  //Added for testing ByCourse.java   
+        i14 = new JMenuItem("By Courses");  //Added for testing ByCourse.java   
         menu2.add(i6); menu2.add(i7); menu2.add(i11); 
         submenu2.add(i8); submenu2.add(i9); submenu2.add(i10);
         submenu3.add(i12); submenu3.add(i13);
-	//submenu2.add(i14);   //Added for testing ByCourse.java
+        submenu2.add(i14);   //Added for testing ByCourse.java
         menu2.add(submenu2);
         menu2.add(submenu3);
         mb.add(menu2);
@@ -133,7 +133,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         i9.addActionListener(this); i10.addActionListener(this);
         i11.addActionListener(this); i12.addActionListener(this);
         i3.addActionListener(this);
-        //i14.addActionListener(this);  //Added for testing ByCourse.java
+        i14.addActionListener(this);  //Added for testing ByCourse.java
         
     	//Frame made visible on the screen
     	f.add(mainLabel);
@@ -171,7 +171,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         	new ProgramOfStudy(this);
         }
         else if(e.getSource()== i5) { 
-        	new CourseGenerate(this);
+        	CourseGenerate.CourseGenerate();
                 //Suggestion that this line be redone without a value passed in given the
                 //the latest change to CourseGenerate
 
@@ -204,9 +204,9 @@ public class RAPMenu extends JFrame implements ActionListener{
         else if(e.getSource()== i13) { 
         	new AssignToCourse(this);
         }
-	//else if(e.getSource()== i14) { //Added for testing ByCourse.java
-        //new ByCourse(this);
-        //}
+        else if(e.getSource()== i14) { //Added for testing ByCourse.java
+        	new ByCourse(this);
+        }
     
         
         else if(e.getActionCommand()=="GO") { 

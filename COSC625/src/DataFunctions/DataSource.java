@@ -42,7 +42,7 @@ public class DataSource {
 		    newQuery("DELETE FROM PROGRAM");
 		    newQuery("DELETE FROM TEACHERS");
 		    newQuery("DELETE FROM HISTORY");
-		    newQuery("DELETE FROM COURSES");
+		    newQuery("DELETE FROM COURSE");
 		    conn.close();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();

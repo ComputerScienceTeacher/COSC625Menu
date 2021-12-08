@@ -26,6 +26,7 @@ public class AddTables {
 		addHistoryTable();
 		addProgramTable();
 		addStudentTable();
+		addTeacherTable();
 		conn.close();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
@@ -42,8 +43,6 @@ public class AddTables {
 	       
 		try { 
                 Statement smt = conn.createStatement();
-		
-		smt.executeUpdate("DROP TABLE COURSE");
 		
 		String sql = "CREATE TABLE  IF NOT EXISTS COURSE (Name VARCHAR(255), CourseID VARCHAR(255), NumberOfCredits FLOAT, "
 				   + "CourseLevel INTEGER, NumberOfStudents INTEGER, CoursePreRequisite VARCHAR(255), CoursePreRequisiteTwo VARCHAR(255), CourseCoRequisite VARCHAR(255), "
@@ -113,8 +112,7 @@ public class AddTables {
 	{
 		ds.setUrl("jdbc:sqlite:test.db");
 		try { 
-                Statement smt = conn.createStatement();
-		smt.executeUpdate("Drop Table Program");
+        Statement smt = conn.createStatement();
 		String sql = "CREATE TABLE IF NOT EXISTS PROGRAM (Name VARCHAR(255), Requirements VARCHAR(255))";
 		
 		smt.executeUpdate(sql);
@@ -122,9 +120,9 @@ public class AddTables {
 		
 		} catch (SQLException e) {
 			System.out.println("Unhandled SQL Exception");
-			e.printStackTrace();
+			e.printStackTrace();}
 		}
-	}
+//	}
 
 	/**
 	* This method adds a history table into the RAP database
