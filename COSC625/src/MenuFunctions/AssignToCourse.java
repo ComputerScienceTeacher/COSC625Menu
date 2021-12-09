@@ -52,20 +52,19 @@ public class AssignToCourse implements ActionListener {
 			conn = ds.getConnection();
 			smt = conn.createStatement();
 			String sql1= "Select Name, CoursePreRequisite from Courses";
-			String sql2 = "Select History from Students";
 
-			rs = smt.executeQuery(sql1);
-			String course_history;
+
 			String[] course_list = new String[115];
 			int count = 0;
-                        
-			
+			rs = smt.executeQuery(sql1);
+
+
 			//This block of code iterates through the result set and initializes
                         //the associated "course_list" array index with the element in the result
 			//set that us currently indicated by the result set cursor
 			while(rs.next())
-			{
-				course_list[count] = rs.getString(1);
+				{
+				course_list[count] = rs.getString("Name");
 				count++;
 			}
 
