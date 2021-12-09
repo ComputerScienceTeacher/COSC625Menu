@@ -98,7 +98,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         i2=new JMenuItem("GPA Calculation");  
         i3=new JMenuItem("Current Courses");  
         i4=new JMenuItem("Program of Study Checklist");  
-        i5=new JMenuItem("Suggested Classes");  
+        i5=new JMenuItem("Assign Core Classes");  
         menu1.add(i1); menu1.add(i2); menu1.add(i3);  
         submenu1.add(i4); submenu1.add(i5);  
         menu1.add(submenu1);  
@@ -109,17 +109,19 @@ public class RAPMenu extends JFrame implements ActionListener{
         submenu2=new JMenu("View Sections");
         submenu3=new JMenu("Assign Students");
         i6=new JMenuItem("View Teachers");  
-        i7=new JMenuItem("View Master Schedule");
-        i8=new JMenuItem("Without Allocated Teachers");
-        i9=new JMenuItem("With Allocated Teachers");
+        //i7=new JMenuItem("View Master Schedule");
+        //i8=new JMenuItem("Without Allocated Teachers");
+        //i9=new JMenuItem("With Allocated Teachers");
         i10 = new JMenuItem("By Total Enrollment");
         i11 = new JMenuItem("View Registered Students");
         i12 = new JMenuItem("To Program of Study");
         i13 = new JMenuItem("To Course");
         i14 = new JMenuItem("By Courses");  //Added for testing ByCourse.java   
-        menu2.add(i6); menu2.add(i7); menu2.add(i11); 
-        submenu2.add(i8); submenu2.add(i9); submenu2.add(i10);
-        submenu3.add(i12); submenu3.add(i13);
+        menu2.add(i6); 
+        //menu2.add(i7); submenu2.add(i8); submenu2.add(i9); 
+        submenu2.add(i10);  menu2.add(i11); 
+        submenu3.add(i12); 
+        //submenu3.add(i13);
         submenu2.add(i14);   //Added for testing ByCourse.java
         menu2.add(submenu2);
         menu2.add(submenu3);
@@ -129,10 +131,10 @@ public class RAPMenu extends JFrame implements ActionListener{
         i1.addActionListener(this); i2.addActionListener(this);
         i3.addActionListener(this); i4.addActionListener(this);
         i5.addActionListener(this); i6.addActionListener(this);
-        i7.addActionListener(this); i8.addActionListener(this);
-        i9.addActionListener(this); i10.addActionListener(this);
+        //i7.addActionListener(this); i8.addActionListener(this); i9.addActionListener(this); 
+        i10.addActionListener(this);
         i11.addActionListener(this); i12.addActionListener(this);
-        i3.addActionListener(this);
+        //i13.addActionListener(this);
         i14.addActionListener(this);  //Added for testing ByCourse.java
         
     	//Frame made visible on the screen

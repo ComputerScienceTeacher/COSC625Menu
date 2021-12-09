@@ -27,7 +27,7 @@ import org.sqlite.SQLiteDataSource;
 
 public class ByCourse {
 	/**
-	 * This method is the view teachers constructor.
+	 * This method is the view courses by course constructor.
 	 *
 	 * @param rp1 - the menu that is used for the program
 	 *
