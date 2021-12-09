@@ -60,7 +60,6 @@ public class ViewTeachers {
 				label.setLineWrap( true );
 				label.setWrapStyleWord(true);
 				panel.add(label, BorderLayout.SOUTH);
-				rs.next();
 				//count = count + 1; //For testing, only temporary
 
 			}
