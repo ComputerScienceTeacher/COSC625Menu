@@ -53,10 +53,7 @@ public class AssignToCourse implements ActionListener {
 			smt = conn.createStatement();
 			String sql= "Select Name from COURSE";
 
-
-
 			int count = 0;
-
 
 			rs = smt.executeQuery(sql);
 			String [] courselist = new String[115];
@@ -76,14 +73,7 @@ public class AssignToCourse implements ActionListener {
 			label = rp1.getMainLabel();
 			label.setText("");
 			JFrame menu = rp1.getF();
-			JPanel panel = rp1.getMainPanel();
-
-			for(int i = 0; i < courselist.length; i++) {
-				JTextArea label = new JTextArea(courselist[i]);
-				label.setLineWrap( true );
-				label.setWrapStyleWord(true);
-				panel.add(label, BorderLayout.SOUTH);
-			}
+			JPanel panel = rp1.getMainPanel();			
 
 			JComboBox<String> Courselist = new JComboBox<String>(courselist);
 
