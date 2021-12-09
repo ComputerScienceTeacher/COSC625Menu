@@ -58,7 +58,11 @@ public class AssignToCourse implements ActionListener {
 			String course_history;
 			String[] course_list = new String[115];
 			int count = 0;
-
+                        
+			
+			//This block of code iterates through the result set and initializes
+                        //the associated "course_list" array index with the element in the result
+			//set that us currently indicated by the result set cursor
 			while(rs.next())
 			{
 				course_list[count] = rs.getString(1);
