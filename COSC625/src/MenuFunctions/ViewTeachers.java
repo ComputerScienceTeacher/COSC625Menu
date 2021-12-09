@@ -49,8 +49,13 @@ public class ViewTeachers {
 			panel.removeAll();
 			panel.setLayout(new GridLayout(50,1));
 			panel.setBorder(BorderFactory.createTitledBorder("List of all Teachers"));
-
-			while(rs.next()) {		
+		 
+                        //This block of code iterates through the result set and initializes
+                        //the JTextArea instantiation "label" with specified elements within the
+                        //result set, wraps label with the setLineWrap and setWrapStyleWord 
+		        //functions, instantiate JPanel object panel with parameters that 
+		        //includes "label", and advances the result set cursor each iteration
+                        while(rs.next()) {		
 				JTextArea label = new JTextArea(rs.getString(1));
 				label.setLineWrap( true );
 				label.setWrapStyleWord(true);

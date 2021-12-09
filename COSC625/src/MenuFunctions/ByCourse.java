@@ -15,26 +15,35 @@ import javax.swing.JTextArea;
 import project.RAPMenu;
 import org.sqlite.SQLiteDataSource;
 
+/**
+ *
+ * This class allows a counselor to view the teachers
+ *
+ * @author Nnabugwu Onyirimba
+ *
+ */
+
+
 
 public class ByCourse {
 	/**
 	 * This method is the view teachers constructor.
-	 * 
+	 *
 	 * @param rp1 - the menu that is used for the program
-	 * 
-	 * 
+	 *
+	 *
 	 * @author Nana, Debugging by Jacob
-	 * 
+	 *
 	 */
 	public ByCourse(RAPMenu rp1) {
-		
+
 		Connection conn;
 		Statement smt;
 		SQLiteDataSource ds;
-		
+
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
-		try 
+		try
 		{   conn = ds.getConnection();
 		    smt = conn.createStatement();
 			int count = 0;
@@ -59,7 +68,7 @@ public class ByCourse {
 				label.setLineWrap(true);
 				label.setWrapStyleWord(true);
 				panel.add(label, BorderLayout.SOUTH);
-				count = count + 1;	
+				count = count + 1;
 				}
 				else {
 				JTextArea label = new JTextArea("# of sections" + "   " + (rs.getInt(5)/5) + "    " + rs.getString(1));
@@ -68,11 +77,11 @@ public class ByCourse {
 				panel.add(label, BorderLayout.SOUTH);
 				count = count + 1;
 				}
-				
+
 			}
-			
+
 			Integer.parseInt("200");
-			
+
 			JTextArea label1 = new JTextArea(Integer.toString(count));
 			label1.setLineWrap( true );
 			label1.setWrapStyleWord(true);
@@ -82,12 +91,12 @@ public class ByCourse {
 			rp1.getF().repaint();
 			rp1.getF().revalidate();
 			conn.close();
-		} 
+		}
 		catch (SQLException e) {
 		System.out.println("Unhandled SQL Exception");
 		e.printStackTrace();
 		}
-	
+
 
 	}
 }
