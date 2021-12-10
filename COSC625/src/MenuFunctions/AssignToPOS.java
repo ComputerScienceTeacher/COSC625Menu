@@ -75,6 +75,7 @@ public class AssignToPOS implements ActionListener {
 			JComboBox<String> cmbMessageList = new JComboBox<String>(prog);
 			JFrame menu = rp1.getF();
 			JPanel panel = rp1.getMainPanel();
+			
 			panel.removeAll();
 			panel.setLayout(new GridLayout(8,1));
 			panel.setBorder(BorderFactory.createTitledBorder("Assign " + rp1.getStudentID() + " to Program of Study"));

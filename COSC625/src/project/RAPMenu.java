@@ -123,7 +123,6 @@ public class RAPMenu extends JFrame implements ActionListener{
         submenu2.add(i10);  menu2.add(i11);
         submenu3.add(i12);
         submenu3.add(i13);
-        //submenu3.add(i13);
         submenu2.add(i14);   //Added for testing ByCourse.java
         menu2.add(submenu2);
         menu2.add(submenu3);
@@ -136,7 +135,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         //i7.addActionListener(this); i8.addActionListener(this); i9.addActionListener(this);
         i10.addActionListener(this);
         i11.addActionListener(this); i12.addActionListener(this);
-        //i13.addActionListener(this);
+        i13.addActionListener(this);
         i14.addActionListener(this);  //Added for testing ByCourse.java
 
     	//Frame made visible on the screen

@@ -51,9 +51,10 @@ public class AssignToCourse implements ActionListener {
 		{
 			conn = ds.getConnection();
 			smt = conn.createStatement();
-
-			String sql= "Select * from COURSE";
+			String sql= "Select Name from COURSE";
+			
 			rs = smt.executeQuery(sql);
+			
 			String [] courselist = new String[115];
 			int count = 0;
 
@@ -61,29 +62,29 @@ public class AssignToCourse implements ActionListener {
                         //the associated "course_list" array index with the element in the result
 			//set that us currently indicated by the result set cursor
 			while(rs.next())
-				{
+			{
 				courselist[count] = rs.getString(1);
 				count++;
-				label = rp1.getMainLabel();
-				label.setText("");
-				JFrame menu = rp1.getF();
-				JPanel panel = rp1.getMainPanel();
+			}
+			
+			label = rp1.getMainLabel();
+			label.setText("");
+			JFrame menu = rp1.getF();
+			JPanel panel = rp1.getMainPanel();
 
-				JComboBox<String> courses = new JComboBox<String>(courselist);
-				courses.setSelectedIndex(1);
-				courses.addActionListener(this);
-				panel.add(courses);
-				panel.add(label);
+			JComboBox<String> courses = new JComboBox<String>(courselist);
+			courses.setSelectedIndex(1);
+			courses.addActionListener(this);
+			panel.removeAll();
+			panel.setLayout(new GridLayout(8,1));
+			panel.setBorder(BorderFactory.createTitledBorder("Assign " + rp1.getStudentID() + " to Course"));
+			panel.add(courses);
+			panel.add(label);
+			menu.repaint();
+			menu.revalidate();
+			conn.close();
 
-				panel.removeAll();
-				panel.setLayout(new GridLayout(8,1));
-				panel.setBorder(BorderFactory.createTitledBorder("Assign " + rp1.getStudentID() + " to Course"));
 
-				menu.repaint();
-				menu.revalidate();
-				conn.close();
-
-		}
 		}
 
 		catch (SQLException e) {
@@ -105,6 +106,6 @@ public class AssignToCourse implements ActionListener {
 		ds.setUrl("jdbc:sqlite:test.db");
 
 
-		}
-
 	}
+
+}
