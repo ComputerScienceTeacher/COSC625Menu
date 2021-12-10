@@ -33,7 +33,7 @@ public class AssignToCourse implements ActionListener {
 	JLabel label;
 
 	RAPMenu rp1;
-	String in;
+	String msg;
 
 
 	/**
@@ -44,49 +44,46 @@ public class AssignToCourse implements ActionListener {
 	public AssignToCourse(RAPMenu rp1) {
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
-		in = null;
+		msg = null;
 
 
 		try
 		{
 			conn = ds.getConnection();
 			smt = conn.createStatement();
-			String sql= "Select Name from COURSE";
 
-			int count = 0;
-
+			String sql= "Select * from COURSE";
 			rs = smt.executeQuery(sql);
 			String [] courselist = new String[115];
+			int count = 0;
 
 			//This block of code iterates through the result set and initializes
                         //the associated "course_list" array index with the element in the result
 			//set that us currently indicated by the result set cursor
 			while(rs.next())
 				{
-
-				courselist[count] = rs.getString("Name");
+				courselist[count] = rs.getString(1);
 				count++;
-			}
+				label = rp1.getMainLabel();
+				label.setText("");
+				JFrame menu = rp1.getF();
+				JPanel panel = rp1.getMainPanel();
 
+				JComboBox<String> courses = new JComboBox<String>(courselist);
+				courses.setSelectedIndex(1);
+				courses.addActionListener(this);
+				panel.add(courses);
+				panel.add(label);
 
+				panel.removeAll();
+				panel.setLayout(new GridLayout(8,1));
+				panel.setBorder(BorderFactory.createTitledBorder("Assign " + rp1.getStudentID() + " to Course"));
 
-			label = rp1.getMainLabel();
-			label.setText("");
-			JFrame menu = rp1.getF();
-			JPanel panel = rp1.getMainPanel();			
+				menu.repaint();
+				menu.revalidate();
+				conn.close();
 
-			JComboBox<String> Courselist = new JComboBox<String>(courselist);
-
-			panel.removeAll();
-			panel.setLayout(new GridLayout(8,1));
-			panel.setBorder(BorderFactory.createTitledBorder("Assign " + rp1.getStudentID() + " to Course"));
-			Courselist.setSelectedIndex(5);
-			Courselist.addActionListener(this);
-			panel.add(Courselist);
-			panel.add(label);
-			menu.repaint(); menu.revalidate();
-			conn.close();
-
+		}
 		}
 
 		catch (SQLException e) {
@@ -100,8 +97,10 @@ public class AssignToCourse implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		JComboBox<?> cb = (JComboBox<?>)e.getSource();
-		in = (String)cb.getSelectedItem();
+
+
+		JComboBox <?> cb = (JComboBox<?>)e.getSource();
+		 msg= (String)cb.getSelectedItem();
 		ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
 
