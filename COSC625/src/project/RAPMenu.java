@@ -18,8 +18,8 @@ public class RAPMenu extends JFrame implements ActionListener{
     /**
 	 * The serial version ID for RAPMenu
 	 */
-	private static final long serialVersionUID = 1L;
-	private JMenu menu1, menu2, submenu1, submenu2, submenu3;
+    private static final long serialVersionUID = 1L;
+    private JMenu menu1, menu2, submenu1, submenu2, submenu3;
     private JMenuItem i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13;
     private JMenuItem i14;  //Added for testing ByCourses.java
     private JLabel mainLabel, label;
@@ -44,7 +44,7 @@ public class RAPMenu extends JFrame implements ActionListener{
         mb = new JMenuBar();
         button1.setActionCommand("GO");
         button1.addActionListener(this);
-		validateStudent();
+	validateStudent();
     	setUpMenu();
     }
 
@@ -84,7 +84,8 @@ public class RAPMenu extends JFrame implements ActionListener{
     	    }
     	});
 
-
+        //This block of code specifies and sets the parameters for the text
+        //presented in the main RAP GUI window
         label.setText(" ");
         mainLabel.setText("Please select a menu option");
         mainLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -158,8 +159,10 @@ public class RAPMenu extends JFrame implements ActionListener{
     	f.revalidate();
 
         //This block of code executes the ClassHistory, GPACalc,
-        //CurrentCourses, ProgramOfStudy,and SuggestClasses methods
-        //from MenuFunction Java files when the corresponding
+        //CurrentCourses, ProgramOfStudy,and SuggestClasses AssignToCourse,
+        //AssignToPOS, ByCourse, CourseGenerate, ProgramOfStudyChecklist,
+        //TotalEnrollment, ViewRegisteredStudents, ViewSections, ViewTeachers 
+        //methods from MenuFunction Java files when the corresponding
         //menu option is selected
         if(e.getSource()== i1) {
         	new ClassHistory(this);
