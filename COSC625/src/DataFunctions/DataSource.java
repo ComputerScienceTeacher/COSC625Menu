@@ -35,15 +35,17 @@ public class DataSource {
 
 				
 	    try {
+                //
+                //
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
 	        conn = ds.getConnection();
 	        newQuery("DELETE FROM STUDENTS");
-		    newQuery("DELETE FROM PROGRAM");
-		    newQuery("DELETE FROM TEACHERS");
-		    newQuery("DELETE FROM HISTORY");
-		    newQuery("DELETE FROM COURSE");
-		    conn.close();
+		newQuery("DELETE FROM PROGRAM");
+		newQuery("DELETE FROM TEACHERS");
+		newQuery("DELETE FROM HISTORY");
+		newQuery("DELETE FROM COURSE");
+		conn.close();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
 	        System.exit(0);
