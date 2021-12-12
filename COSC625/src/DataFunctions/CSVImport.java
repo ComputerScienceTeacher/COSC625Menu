@@ -20,15 +20,17 @@ public class CSVImport {
 		ds = null;
 				
 	    try {
+                //
+                //
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
-			conn = ds.getConnection();
-		    programImport();
-		    studentImport();
-		    teacherImport();
-		    historyImport();
-		    courseImport();
-		    conn.close();
+		conn = ds.getConnection();
+		programImport();
+		studentImport();
+		teacherImport();
+		historyImport();
+		courseImport();
+		conn.close();
 	    } catch ( Exception e ) {
 	        e.printStackTrace();
 	        System.exit(0);
