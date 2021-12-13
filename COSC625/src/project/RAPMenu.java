@@ -159,7 +159,7 @@ public class RAPMenu extends JFrame implements ActionListener{
     	f.revalidate();
 
         //This block of code executes the ClassHistory, GPACalc,
-        //CurrentCourses, ProgramOfStudy,and SuggestClasses AssignToCourse,
+        //CurrentCourses, ProgramOfStudy, AssignToCourse,
         //AssignToPOS, ByCourse, CourseGenerate, ProgramOfStudyChecklist,
         //TotalEnrollment, ViewRegisteredStudents, ViewSections, ViewTeachers 
         //methods from MenuFunction Java files when the corresponding
