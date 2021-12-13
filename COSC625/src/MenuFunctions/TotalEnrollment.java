@@ -56,6 +56,11 @@ public class TotalEnrollment {
 			panel.setLayout(new GridLayout(1000,1));
 			panel.setBorder(BorderFactory.createTitledBorder("# sections per course"));
 
+
+                        //This block of iterates through the result set and applies
+                        //a conditional calculation to determine the correct # of
+                        //sections based on the number of students assigned to a
+                        //course,
 			while(rs.next()) {
 				if(rs.getInt(5) == 0)
 				{JTextArea label = new JTextArea("# of sections" + "    0    " + rs.getString(1));
