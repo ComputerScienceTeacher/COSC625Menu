@@ -59,7 +59,7 @@ public class ByCourse {
                         //This block of iterates through the result set and applies
                         //a conditional calculation to determine the correct # of
                         //sections based on the number of students assigned to a
-                        //course,
+                        //course
 			while(rs.next()) {
 				if(rs.getInt(5) == 0)
 				{
