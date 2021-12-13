@@ -55,6 +55,8 @@ public class ViewTeachers {
                         //result set, wraps label with the setLineWrap and setWrapStyleWord 
 		        //functions, instantiate JPanel object panel with parameters that 
 		        //includes "label", and advances the result set cursor each iteration
+                        //note: This code forms the basis of the code used in Bycourses and
+                        //TotalEnrollment
                         while(rs.next()) {		
 				JTextArea label = new JTextArea(rs.getString(1));
 				label.setLineWrap( true );
