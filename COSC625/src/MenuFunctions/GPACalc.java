@@ -46,7 +46,13 @@ public class GPACalc {
 			panel.removeAll();
 			panel.setLayout(new GridLayout(13,2));
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s GPA:"));
-			for(int i = 0; i<gradePoints.length; i++) {	
+			
+
+
+                        //This block of code iterates through the "gradePoints" array
+                        //and performs a running calculation on its indices to arrive
+                        //at the correct GPA
+                        for(int i = 0; i<gradePoints.length; i++) {	
 				double GPA = Double.valueOf(gradePoints[i]);
 				JTextArea label = new JTextArea(String.format("%-25.25s\t%5.2f", classes[i], GPA));
 				label.setLineWrap( true );
