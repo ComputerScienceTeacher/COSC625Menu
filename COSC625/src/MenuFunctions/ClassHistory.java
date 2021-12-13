@@ -47,6 +47,10 @@ public class ClassHistory {
 			panel.removeAll();
 			panel.setLayout(new GridLayout(8,1));
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s History:"));
+                        
+                        //This block of code iterates through the "classes" array, 
+                        //and displays the contents of its indices in the window
+
 			for(int i = 0; i<classes.length; i++) {				
 				JTextArea label = new JTextArea(classes[i]);
 				label.setLineWrap( true );
