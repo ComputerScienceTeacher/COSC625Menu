@@ -41,7 +41,12 @@ public class CurrentCourses {
 			panel.removeAll();
 			panel.setLayout(new GridLayout(8,1));
 			panel.setBorder(BorderFactory.createTitledBorder("Student " + rp1.getStudentID() + "'s Current Schedule"));
-			for(int i = 0; i < prog.length; i++) {
+		  
+
+                  //This block of code iterates through the "prog" array
+                  //and displays the contents of its indices in the 
+                  //window	
+                  for(int i = 0; i < prog.length; i++) {
 				JTextArea label = new JTextArea(prog[i]);
 				label.setLineWrap( true );
 				label.setWrapStyleWord(true);
