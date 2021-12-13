@@ -26,7 +26,7 @@ public class ProgramOfStudy {
                 //This block of code declares the SQLite database, iniatizes it's
                 //url, and displays specified text in the window when the associated
                 //menu option is selected
-                //Note: This code is reused in various Java files throughout the
+                //note: This code is reused in various Java files throughout the
                 //repository
 		SQLiteDataSource ds = new SQLiteDataSource();
 		ds.setUrl("jdbc:sqlite:test.db");
@@ -38,7 +38,7 @@ public class ProgramOfStudy {
                         //it for the student table and the "program of study" field associated
                         //with the given student id. The result is read into the string "prog"
                         //and displayed in the RAP GUI window
-                        //Note: This code is reused in various Java files throughout the
+                        //note: This code is reused in various Java files throughout the
                         //repository
 			conn = ds.getConnection();
 			smt = conn.createStatement();
