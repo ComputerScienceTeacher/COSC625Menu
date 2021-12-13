@@ -56,7 +56,8 @@ public class ViewTeachers {
 		        //functions, instantiate JPanel object panel with parameters that 
 		        //includes "label", and advances the result set cursor each iteration
                         //note: This code forms the basis of the code used in Bycourses and
-                        //TotalEnrollment
+                        //TotalEnrollment and elements of code within the loop are duplicated
+                        //in other loops used in Java files within the MenuFunctions folder
                         while(rs.next()) {		
 				JTextArea label = new JTextArea(rs.getString(1));
 				label.setLineWrap( true );
