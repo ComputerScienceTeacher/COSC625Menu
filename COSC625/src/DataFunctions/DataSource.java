@@ -35,8 +35,10 @@ public class DataSource {
 
 				
 	    try {
-                //
-                //
+		//This block of code declares the SQLite database, iniatizes it's
+                //url, establishes a connection, and invokes a variety of queries 
+                //to clear all tables
+                
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
 	        conn = ds.getConnection();
