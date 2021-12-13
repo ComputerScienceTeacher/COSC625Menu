@@ -19,7 +19,7 @@ import org.sqlite.SQLiteDataSource;
  *
  * This class allows a counselor to view the teachers
  *
- * @author Nnabugwu Onyirimba
+ * @author Nnabugwu Onyirimba(nana)
  *
  */
 
