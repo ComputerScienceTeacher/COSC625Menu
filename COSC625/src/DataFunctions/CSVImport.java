@@ -20,8 +20,10 @@ public class CSVImport {
 		ds = null;
 				
 	    try {
-                //
-                //
+		//This block of code declares the SQLite database, iniatizes it's
+                //url, establishes a connection, and invokes the associated functions 
+                //for importing the Program of Study, Student, Teacher, Course history,
+                //Course source data
 	        ds = new SQLiteDataSource();
 	        ds.setUrl("jdbc:sqlite:test.db");
 		conn = ds.getConnection();
